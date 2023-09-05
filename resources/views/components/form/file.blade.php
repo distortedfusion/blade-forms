@@ -9,21 +9,18 @@
             @endif />
     </div>
 
-    <div class="flex items-start rounded-md shadow-sm">
-        <label class="flex-grow floating-label">
-            <input {!! $attributes
-                ->merge(['placeholder' => $label ?: $name])
-                ->class([
-                    'form-input cursor-pointer',
-                    'text-black bg-white border-gray-300 rounded-md rounded-r-none',
-                    'dark:text-white dark:bg-gray-900 dark:border-gray-800',
-                ]) !!}
-                name="{{ $name.'_placeholder' }}"
-                type="text" />
-            <x-form-label class="floating" :label="$label" />
-        </label>
+    <x-form-label :label="$label ?? $name" :for="$name.'_file'" />
 
-        <label class="btn btn-default cursor-pointer leading-snug rounded-l-none rounded-r-md relative shadow-none -ml-1" for="{{ $name.'_file' }}">
+    <div class="mt-2 flex rounded-md shadow-sm dark:shadow-none">
+        <input {!! $attributes->class([
+                'form-input block w-full flex-grow relative cursor-pointer',
+                'text-black bg-white border-gray-300 rounded-md rounded-r-none',
+                'dark:text-white dark:bg-gray-900 dark:border-gray-800',
+            ]) !!}
+            name="{{ $name.'_placeholder' }}"
+            type="text"
+            readonly />
+        <label class="btn btn-default cursor-pointer leading-snug inline-flex items-center w-auto h-auto rounded-l-none rounded-r-md relative shadow-none -ml-1" for="{{ $name.'_file' }}">
             {{ $action ?? __('Select file') }}
         </label>
     </div>

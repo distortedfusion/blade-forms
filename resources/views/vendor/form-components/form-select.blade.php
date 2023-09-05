@@ -1,6 +1,9 @@
 <div>
-    <label class="floating-label">
+    <x-form-label :label="$label ?? $name" :for="$name" />
+
+    <div class="mt-2 flex rounded-md shadow-sm dark:shadow-none">
         <select
+            id="{{ $name }}"
             @if($isWired())
                 wire:model{!! $wireModifier() !!}="{{ $name }}"
             @else
@@ -13,7 +16,7 @@
 
             {{ $attributes->class([
                 'form-select',
-                'placeholder:font-semibold dark:placeholder:text-gray-200',
+                'placeholder:text-muted dark:placeholder:text-gray-200',
                 'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
                 'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
                 'border-gray-300 dark:border-gray-700' => ! Str::contains($attributes->get('class'), 'border-'),
@@ -29,9 +32,7 @@
                 {!! $slot !!}
             @endforelse
         </select>
-
-        <x-form-label class="floating" :label="$label" />
-    </label>
+    </div>
 
     @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />
