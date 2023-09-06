@@ -4,9 +4,9 @@
     @if ($title)
         <div class="flex items-center justify-between">
             <div class="flex-grow">
-                <h3 class="text-lg leading-6 font-medium">{{ $title }}</h3>
+                <h3 class="text-lg leading-6 font-semibold">{{ $title }}</h3>
                 @if ($description)
-                    <p class="mt-1 text-muted text-sm">{{ $description }}</p>
+                    <p class="mt-2 text-muted text-sm">{{ $description }}</p>
                 @endif
             </div>
 
@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 gap-y-2 gap-x-4 sm:grid-cols-6">
+    <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-6">
         {{ $slot }}
     </div>
 </section>

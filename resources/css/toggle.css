@@ -1,24 +1,14 @@
-.form-toggle {
-    @apply h-8 w-12 inline-block relative;
-}
-
-.form-toggle input {
-    @apply opacity-0 w-0 h-0;
-}
-
 /* The slider */
 .form-toggle .slider {
     @apply border border-transparent bg-gray-300 shadow-inner cursor-pointer absolute inset-0 ring-0 ring-brand-500 ring-opacity-0;
 
     transition: all .15s ease-out, box-shadow .2s ease-in-out;
 
-    &:before {
+    .slider-dot {
         content: "";
         left: .25rem;
         top: 50%;
         transition: all .15s ease-out;
-
-        @apply w-6 h-6 bg-white shadow absolute -mt-3;
     }
 }
 
@@ -28,12 +18,12 @@
     }
 
     input:focus + .slider {
-        @apply border-brand-500 ring ring-brand-500 ring-opacity-50;
+        @apply outline-none ring-2 ring-brand-500 ring-offset-2;
     }
 
-    input:checked + .slider:before {
+    input:checked + .slider .slider-dot {
         left: 100%;
-        margin-left: -1.75rem; /* w-6 + mr-1 */
+        @apply -ml-5;
     }
 
     input:disabled, &[readonly] {
@@ -41,21 +31,12 @@
             @apply cursor-not-allowed;
         }
 
-        + .slider:before {
+        + .slider .slider-dot {
             @apply bg-gray-100;
         }
 
         &:focus + .slider {
             @apply ring ring-gray-300 ring-opacity-50;
         }
-    }
-}
-
-/* Rounded sliders */
-.form-toggle .slider.round {
-    @apply rounded-full;
-
-    &:before {
-        @apply rounded-full;
     }
 }
