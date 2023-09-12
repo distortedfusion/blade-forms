@@ -1,5 +1,5 @@
-<x-form.section>
-    <div class="col-span-3">
+<div class="flex flex-col flex-col-reverse md:flex-row items-center md:space-x-4">
+    <div class="flex-1 w-full mt-2 md:mt-0">
         @if ($cancelButton ?? false)
             {{ $cancelButton }}
         @elseif($isWired() && method_exists($this, 'redirectWithPrevious') && $redirectPrevious)
@@ -15,7 +15,7 @@
             </x-btn>
         @endif
     </div>
-    <div class="col-span-3">
+    <div class="flex-1 w-full">
         @if ($submitButton ?? false)
             {{ $submitButton }}
         @else
@@ -24,4 +24,4 @@
             </x-form-submit>
         @endif
     </div>
-</x-form.section>
+</div>
