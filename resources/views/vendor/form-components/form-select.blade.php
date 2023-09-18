@@ -1,7 +1,7 @@
-<div>
+<div class="space-y-2">
     <x-form-label :label="$label ?? $name" :for="$name" />
 
-    <div class="mt-2 flex rounded-md shadow-sm dark:shadow-none">
+    <div class="flex rounded-md shadow-sm dark:shadow-none">
         <select
             id="{{ $name }}"
             @if($isWired())

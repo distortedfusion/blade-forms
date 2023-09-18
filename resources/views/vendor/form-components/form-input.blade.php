@@ -1,7 +1,7 @@
-<div class="{{ $type === 'hidden' ? 'hidden' : null }}">
+<div class="space-y-2{{ $type === 'hidden' ? ' hidden' : null }}">
     <x-form-label :label="$label ?? $name" :for="$name" />
 
-    <div class="mt-2 flex rounded-md shadow-sm dark:shadow-none">
+    <div class="flex rounded-md shadow-sm dark:shadow-none">
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
