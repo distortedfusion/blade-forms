@@ -57,7 +57,6 @@ class BladeFormsServiceProvider extends ServiceProvider
     {
         $this->publishes([
             DF_BF_PATH.'/resources/css' => $this->app->resourcePath('/css/vendor/distortedfusion/blade-forms'),
-            DF_BF_PATH.'/resources/js' => $this->app->resourcePath('/js/vendor/distortedfusion/blade-forms'),
         ], 'blade-forms-assets');
     }
 
