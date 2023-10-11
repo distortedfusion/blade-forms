@@ -1,40 +1,43 @@
-<div {!! $attributes->merge(['class' => 'flex flex-col']) !!}>
-    <div class="flex items-start">
-        <label class="form-toggle flex-shrink-0 h-6 w-11 inline-block relative">
-            <input class="opacity-0 w-0 h-0"
-                id="{{ $name }}"
-                type="checkbox"
-                value="{{ $value }}"
+<div {{ $attributes }}>
+    <label class="form-toggle inline-flex items-start">
+        <input class="sr-only peer"
+            id="{{ $name }}"
+            type="checkbox"
+            value="{{ $value }}"
 
-                @if($isWired())
-                    wire:model{!! $wireModifier() !!}="{{ $name }}"
-                @else
-                    name="{{ $name }}"
-                @endif
+            @if($isWired())
+                wire:model{!! $wireModifier() !!}="{{ $name }}"
+            @else
+                name="{{ $name }}"
+            @endif
 
-                @if($checked)
-                    checked="checked"
-                @endif
+            @if($checked)
+                checked="checked"
+            @endif
 
-                @if($disabled)
-                    disabled
-                @endif
-            />
-            {{-- Slider Container --}}
-            <div class="slider border border-transparent bg-gray-300 shadow-inner cursor-pointer absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full">
-                {{-- Slider Dot --}}
-                <div class="slider-dot w-4 h-4 bg-white shadow rounded-full absolute -mt-2"></div>
-            </div>
-        </label>
+            @if($disabled)
+                disabled
+            @endif
+        />
+        <div class="{{ implode(' ', [
+            'h-6 w-10 inline-block relative border-none bg-gray-300 shadow-inner absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full cursor-pointer',
+            '[transition:color_.15s_ease-out,_box-shadow_.2s_ease-in-out]',
+            'peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-brand-500',
+            'peer-checked:bg-brand-600',
+            'after:content-[\'\'] after:h-4 after:w-4 after:bg-white after:shadow after:rounded-full after:-mt-2 after:absolute after:top-1/2 after:left-1 after:transition-all',
+            'peer-checked:after:translate-x-full',
+            'peer-disabled:peer-checked:bg-brand-300 peer-disabled:cursor-not-allowed',
+            'peer-disabled:after:bg-gray-100',
+        ]) }}"></div>
 
-        <label class="flex-grow ml-4 cursor-pointer select-none" for="{{ $name }}">
+        <div class="ml-4 cursor-pointer peer-disabled:cursor-not-allowed">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
             @if ($description ?? false)
-                <x-form-help>{{ $description }}</x-form-help>
+                <x-form-help class="mt-0">{{ $description }}</x-form-help>
             @endif
-        </label>
-    </div>
+        </div>
+    </label>
 
     @if($hasErrorAndShow($name))
         <x-form-errors :name="$name" />

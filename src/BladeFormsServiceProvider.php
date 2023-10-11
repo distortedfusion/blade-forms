@@ -32,7 +32,6 @@ class BladeFormsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerResources();
-        $this->defineAssetPublishing();
         $this->offerPublishing();
         $this->configureBladeComponents();
     }
@@ -51,13 +50,6 @@ class BladeFormsServiceProvider extends ServiceProvider
                 Config::set('form-components.components.'.$alias, array_merge($defaultConfig, $config));
             }
         });
-    }
-
-    private function defineAssetPublishing(): void
-    {
-        $this->publishes([
-            DF_BF_PATH.'/resources/css' => $this->app->resourcePath('/css/vendor/distortedfusion/blade-forms'),
-        ], 'blade-forms-assets');
     }
 
     private function offerPublishing(): void
