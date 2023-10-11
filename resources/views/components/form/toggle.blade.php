@@ -20,7 +20,7 @@
             @endif
         />
         <div class="{{ implode(' ', [
-            'h-6 w-10 inline-block relative border-none bg-gray-300 shadow-inner absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full cursor-pointer',
+            'flex-shrink-0 h-6 w-10 inline-block relative border-none bg-gray-300 shadow-inner absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full cursor-pointer',
             '[transition:color_.15s_ease-out,_box-shadow_.2s_ease-in-out]',
             'peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-brand-500',
             'peer-checked:bg-brand-600',
