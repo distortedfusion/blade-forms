@@ -1,7 +1,7 @@
 <section {{ $attributes->class([
-    'form-section pt-8 space-y-4',
+    'pt-8 space-y-4',
 ]) }}>
-    @if ($title)
+    @if($title)
         <div class="flex items-center justify-between">
             <div class="flex-grow">
                 <h3 class="text-lg leading-6 font-semibold">{{ $title }}</h3>
