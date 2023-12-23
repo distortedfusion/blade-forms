@@ -4,9 +4,9 @@
     @if($title)
         <div class="flex items-center justify-between">
             <div class="flex-grow">
-                <h3 class="text-lg leading-6 font-semibold">{{ $title }}</h3>
-                @if ($description)
-                    <p class="mt-2 text-muted text-sm">{{ $description }}</p>
+                <x-form.section-title>{{ $title }}</x-form.section-title>
+                @if($description)
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $description }}</p>
                 @endif
             </div>
 

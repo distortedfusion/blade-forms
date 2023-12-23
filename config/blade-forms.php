@@ -7,6 +7,7 @@ return [
         // Form...
         'form.actions' => Components\Form\Actions::class,
         'form.section' => Components\Form\Section::class,
+        'form.section-title' => Components\Form\SectionTitle::class,
         'form.sections' => 'blade-forms::components.form.section-group',
 
         // Form components...
