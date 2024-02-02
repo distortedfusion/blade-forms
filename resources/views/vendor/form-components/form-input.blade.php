@@ -11,26 +11,46 @@
                 {{ $prefix }}
             </span>
         @endif
-        <input {{ $attributes->class([
-                'form-input block w-full flex-grow relative text-base sm:text-sm',
-                'placeholder:text-gray-400 dark:placeholder:text-gray-600',
-                'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
-                'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
-                'border-gray-300 dark:border-gray-700' => ! Str::contains($attributes->get('class'), 'border-'),
-                'ring-0 focus:border-brand-500 focus:ring-1 focus:ring-brand-500',
-                'disabled:bg-gray-100 disabled:border-gray-300 read-only:bg-gray-100 read-only:border-gray-300',
-                'focus:disabled:ring-gray-300 focus:disabled:border-gray-300 focus:read-only:ring-gray-300 focus:read-only:border-gray-300',
-                'rounded-l-md' => ($prefix ?? false) === false,
-                'rounded-r-md' => ($suffix ?? false) === false,
-            ]) }}
-            id="{{ $name }}"
-            @if($isWired())
-            wire:model{!! $wireModifier() !!}="{{ $name }}"
-            @else
-            name="{{ $name }}"
-            value="{{ $value }}"
+        <div class="w-full flex-grow relative">
+            @if($iconPrefix ?? false)
+                <span {{ $iconPrefix->attributes->class([
+                    'absolute left-2 inset-y-0',
+                    'flex items-center',
+                ]) }}>
+                    {{ $iconPrefix }}
+                </span>
             @endif
-            type="{{ $type }}" />
+            <input {{ $attributes->class([
+                    'form-input block w-full text-base sm:text-sm',
+                    'placeholder:text-gray-400 dark:placeholder:text-gray-600',
+                    'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
+                    'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
+                    'border-gray-300 dark:border-gray-700' => ! Str::contains($attributes->get('class'), 'border-'),
+                    'ring-0 focus:border-brand-500 focus:ring-1 focus:ring-brand-500',
+                    'disabled:bg-gray-100 disabled:border-gray-300 read-only:bg-gray-100 read-only:border-gray-300',
+                    'focus:disabled:ring-gray-300 focus:disabled:border-gray-300 focus:read-only:ring-gray-300 focus:read-only:border-gray-300',
+                    'rounded-l-md' => ($prefix ?? false) === false,
+                    'rounded-r-md' => ($suffix ?? false) === false,
+                    'pl-8' => ($iconPrefix ?? false) !== false,
+                    'pr-8' => ($iconSuffix ?? false) !== false,
+                ]) }}
+                id="{{ $name }}"
+                @if($isWired())
+                wire:model{!! $wireModifier() !!}="{{ $name }}"
+                @else
+                name="{{ $name }}"
+                value="{{ $value }}"
+                @endif
+                type="{{ $type }}" />
+            @if($iconSuffix ?? false)
+                <span {{ $iconSuffix->attributes->class([
+                    'absolute right-2 inset-y-0',
+                    'flex items-center',
+                ]) }}>
+                    {{ $iconSuffix }}
+                </span>
+            @endif
+        </div>
         @if($suffix ?? false)
             <span {{ $suffix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-r-md -ml-px',

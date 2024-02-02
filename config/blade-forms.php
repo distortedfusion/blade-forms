@@ -15,6 +15,7 @@ return [
         'form-help' => Components\Form\Help::class,
         'form-select.description' => Components\Form\SelectDescription::class,
         'form-toggle' => Components\Form\Toggle::class,
+        'form.icon' => 'blade-forms::components.form.icon',
     ],
 
     /*
