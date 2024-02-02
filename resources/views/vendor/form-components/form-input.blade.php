@@ -1,12 +1,15 @@
 <div class="space-y-2{{ $type === 'hidden' ? ' hidden' : null }}">
     <x-form-label :label="$label ?? $name" :for="$name" />
 
-    <div class="flex rounded-md shadow-sm dark:shadow-none">
+    <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
+            ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
+            : 'rounded-md'
+        }}">
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
-                'text-black bg-white border-gray-300 shadow-sm',
-                'dark:text-white dark:bg-gray-900 dark:border-gray-700 dark:shadow-none',
+                'text-base leading-none sm:text-sm sm:leading-none text-black bg-white border-gray-300',
+                'dark:text-white dark:bg-gray-900 dark:border-gray-700',
             ]) }}>
                 {{ $prefix }}
             </span>
@@ -21,7 +24,7 @@
                 </span>
             @endif
             <input {{ $attributes->class([
-                    'form-input block w-full text-base sm:text-sm',
+                    'form-input block w-full h-full text-base sm:text-sm',
                     'placeholder:text-gray-400 dark:placeholder:text-gray-600',
                     'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
                     'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
@@ -54,8 +57,8 @@
         @if($suffix ?? false)
             <span {{ $suffix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-r-md -ml-px',
-                'text-black bg-white border-gray-300 shadow-sm',
-                'dark:text-white dark:bg-gray-900 dark:border-gray-800 dark:shadow-none',
+                'text-base leading-none sm:text-sm sm:leading-none text-black bg-white border-gray-300',
+                'dark:text-white dark:bg-gray-900 dark:border-gray-800',
             ]) }}>
                 {{ $suffix }}
             </span>
