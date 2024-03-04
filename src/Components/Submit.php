@@ -2,6 +2,6 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-class FormSubmit extends Component
+class Submit extends FormComponent
 {
 }

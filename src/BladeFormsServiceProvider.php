@@ -3,7 +3,6 @@
 namespace DistortedFusion\BladeForms;
 
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
@@ -23,7 +22,6 @@ class BladeFormsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(DF_BF_PATH.'/config/blade-forms.php', 'blade-forms');
 
         // DEPRECATED
-        $this->registerFormComponentsOverload();
         $this->app->singleton(FormDataBinder::class, fn () => new FormDataBinder());
         // END-DEPRECATED
     }
@@ -39,17 +37,6 @@ class BladeFormsServiceProvider extends ServiceProvider
         $this->registerResources();
         $this->configureBladeComponents();
         $this->configureBladeDirectives();
-    }
-
-    private function registerFormComponentsOverload(): void
-    {
-        $this->booting(function () {
-            foreach (config('blade-forms.form-components', []) as $alias => $config) {
-                $defaultConfig = config('blade-forms.components.'.$alias);
-
-                Config::set('form-components.components.'.$alias, array_merge($defaultConfig, $config));
-            }
-        });
     }
 
     private function offerPublishing(): void
@@ -82,19 +69,19 @@ class BladeFormsServiceProvider extends ServiceProvider
     private function configureBladeDirectives(): void
     {
         Blade::directive('bind', function ($bind) {
-            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->bind('.$bind.'); ?>';
+            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->bind('.$bind.'); ?>';
         });
 
         Blade::directive('endbind', function () {
-            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->pop(); ?>';
+            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->pop(); ?>';
         });
 
         Blade::directive('wire', function ($modifier) {
-            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->wire('.$modifier.'); ?>';
+            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->wire('.$modifier.'); ?>';
         });
 
         Blade::directive('endwire', function () {
-            return '<?php app(\ProtoneMedia\LaravelFormComponents\FormDataBinder::class)->endWire(); ?>';
+            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->endWire(); ?>';
         });
     }
 }

@@ -10,30 +10,28 @@ return [
 
     'components' => [
         // Form...
-        'form.actions' => Components\Form\Actions::class,
-        'form.section' => Components\Form\Section::class,
-        'form.section-title' => Components\Form\SectionTitle::class,
-        'form.sections' => 'blade-forms::components.form.section-group',
+        'form.actions' => Components\Actions::class,
+        'form.section' => Components\Section::class,
+        'form.section-title' => Components\SectionTitle::class,
+        'form.sections' => 'blade-forms::components.section-group',
 
         // Form components...
-        'form-button' => Components\Form\Button::class,
-        'form-help' => Components\Form\Help::class,
-        'form-select.description' => Components\Form\SelectDescription::class,
-        'form-toggle' => Components\Form\Toggle::class,
+        'form-button' => Components\Button::class,
+        'form-help' => Components\Help::class,
+        'form-select.description' => Components\SelectDescription::class,
+        'form-toggle' => Components\Toggle::class,
 
         // Ported form componensts...
         'form' => Components\Form::class,
-        'form-checkbox' => Components\FormCheckbox::class,
-        'form-errors' => Components\FormErrors::class,
-        'form-group' => Components\FormGroup::class,
-        'form-input' => Components\FormInput::class,
-        'form-input-group' => Components\FormInputGroup::class,
-        'form-input-group-text' => Components\FormInputGroupText::class,
-        'form-label' => Components\FormLabel::class,
-        'form-radio' => Components\FormRadio::class,
-        'form-range' => Components\FormRange::class,
-        'form-select' => Components\FormSelect::class,
-        'form-submit' => Components\FormSubmit::class,
-        'form-textarea' => Components\FormTextarea::class,
+        'form-checkbox' => Components\Checkbox::class,
+        'form-errors' => Components\Errors::class,
+        'form-group' => Components\Group::class,
+        'form-input' => Components\Input::class,
+        'form-label' => Components\Label::class,
+        'form-radio' => Components\Radio::class,
+        'form-range' => Components\Range::class,
+        'form-select' => Components\Select::class,
+        'form-submit' => Components\Submit::class,
+        'form-textarea' => Components\Textarea::class,
     ],
 ];

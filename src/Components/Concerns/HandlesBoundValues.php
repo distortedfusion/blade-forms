@@ -1,14 +1,14 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components;
+namespace DistortedFusion\BladeForms\Components\Concerns;
 
 use DateTimeInterface;
+use DistortedFusion\BladeForms\FormDataBinder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use ProtoneMedia\LaravelFormComponents\FormDataBinder;
 
 trait HandlesBoundValues
 {

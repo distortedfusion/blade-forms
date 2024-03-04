@@ -2,6 +2,6 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-class FormTextarea extends FormInput
+class Textarea extends Input
 {
 }

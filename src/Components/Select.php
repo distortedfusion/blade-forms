@@ -6,10 +6,10 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class FormSelect extends Component
+class Select extends FormComponent
 {
-    use HandlesValidationErrors;
-    use HandlesBoundValues;
+    use Concerns\HandlesValidationErrors;
+    use Concerns\HandlesBoundValues;
 
     public string $name;
     public string $label;

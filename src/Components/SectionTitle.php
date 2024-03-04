@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\View\Component;
 
@@ -25,6 +25,6 @@ class SectionTitle extends Component
      */
     public function render()
     {
-        return view('blade-forms::components.form.section-title');
+        return view('blade-forms::components.section-title');
     }
 }

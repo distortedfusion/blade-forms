@@ -2,7 +2,7 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-class FormLabel extends Component
+class Label extends FormComponent
 {
     public string $label;
 

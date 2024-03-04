@@ -2,10 +2,10 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-class FormRadio extends Component
+class Radio extends FormComponent
 {
-    use HandlesValidationErrors;
-    use HandlesBoundValues;
+    use Concerns\HandlesValidationErrors;
+    use Concerns\HandlesBoundValues;
 
     public string $name;
     public string $label;

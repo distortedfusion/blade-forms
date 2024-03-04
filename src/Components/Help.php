@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\View\Component;
 
@@ -13,6 +13,6 @@ class Help extends Component
      */
     public function render()
     {
-        return view('blade-forms::components.form.help');
+        return view('blade-forms::components.help');
     }
 }

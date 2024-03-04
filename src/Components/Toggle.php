@@ -1,10 +1,8 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
-use ProtoneMedia\LaravelFormComponents\Components\FormCheckbox;
-
-class Toggle extends FormCheckbox
+class Toggle extends Checkbox
 {
     public bool $disabled;
 
@@ -20,15 +18,5 @@ class Toggle extends FormCheckbox
         parent::__construct($name, $label, $value, $bind, $default, $showErrors);
 
         $this->disabled = $disabled;
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('blade-forms::components.form.toggle');
     }
 }

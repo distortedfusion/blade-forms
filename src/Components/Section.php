@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\View\Component;
 
@@ -15,7 +15,7 @@ class Section extends Component
      * @param string|null $title
      * @param string|null $description
      */
-    public function __construct(string $title = null, string $description = null)
+    public function __construct(?string $title = null, ?string $description = null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -28,6 +28,6 @@ class Section extends Component
      */
     public function render()
     {
-        return view('blade-forms::components.form.section');
+        return view('blade-forms::components.section');
     }
 }

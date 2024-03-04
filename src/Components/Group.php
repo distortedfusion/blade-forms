@@ -2,9 +2,9 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-class FormGroup extends Component
+class Group extends FormComponent
 {
-    use HandlesValidationErrors;
+    use Concerns\HandlesValidationErrors;
 
     public string $name;
     public string $label;

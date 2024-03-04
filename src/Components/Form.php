@@ -5,7 +5,7 @@ namespace DistortedFusion\BladeForms\Components;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ViewErrorBag;
 
-class Form extends Component
+class Form extends FormComponent
 {
     /**
      * Request method.

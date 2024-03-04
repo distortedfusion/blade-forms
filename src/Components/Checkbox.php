@@ -6,10 +6,10 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class FormCheckbox extends Component
+class Checkbox extends FormComponent
 {
-    use HandlesValidationErrors;
-    use HandlesBoundValues;
+    use Concerns\HandlesValidationErrors;
+    use Concerns\HandlesBoundValues;
 
     public string $name;
     public string $label;

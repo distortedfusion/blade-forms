@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components;
+namespace DistortedFusion\BladeForms\Components\Concerns;
 
 trait HandlesDefaultAndOldValue
 {

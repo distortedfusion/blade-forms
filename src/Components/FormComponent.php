@@ -2,11 +2,12 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
+use Closure;
+use DistortedFusion\BladeForms\FormDataBinder;
 use Illuminate\Support\Str;
-use Illuminate\View\Component as BaseComponent;
-use ProtoneMedia\LaravelFormComponents\FormDataBinder;
+use Illuminate\View\Component;
 
-abstract class Component extends BaseComponent
+abstract class FormComponent extends Component
 {
     /**
      * ID for this component.
@@ -16,15 +17,15 @@ abstract class Component extends BaseComponent
     private $id;
 
     /**
-     * {@inheritDoc}
+     * Get the view / view contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|Closure|string
      */
     public function render()
     {
         $alias = Str::kebab(class_basename($this));
 
-        dd($alias);
-
-        return str_replace('{framework}', $framework, $config['view']);
+        return "blade-forms::components.{$alias}";
     }
 
     /**

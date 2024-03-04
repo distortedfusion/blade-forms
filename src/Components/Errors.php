@@ -4,7 +4,7 @@ namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\Support\Str;
 
-class FormErrors extends Component
+class Errors extends FormComponent
 {
     public string $name;
     public string $bag;

@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components;
+namespace DistortedFusion\BladeForms\Components\Concerns;
 
 use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Support\Facades\View;

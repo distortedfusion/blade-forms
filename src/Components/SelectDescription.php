@@ -1,6 +1,6 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\View\Component;
 
@@ -28,6 +28,6 @@ class SelectDescription extends Component
      */
     public function render()
     {
-        return view('blade-forms::components.form.select-description');
+        return view('blade-forms::components.select-description');
     }
 }

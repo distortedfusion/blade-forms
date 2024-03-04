@@ -1,9 +1,8 @@
 <?php
 
-namespace DistortedFusion\BladeForms\Components\Form;
+namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\Support\Facades\URL;
-use ProtoneMedia\LaravelFormComponents\Components\Component as FormComponent;
 
 class Actions extends FormComponent
 {
@@ -22,23 +21,13 @@ class Actions extends FormComponent
      * @param string|null $submitTitle
      * @param string      $style
      */
-    public function __construct(string $cancel = null, bool $redirectPrevious = false, string $cancelTitle = null, string $submitTitle = null, string $style = 'primary')
+    public function __construct(?string $cancel = null, bool $redirectPrevious = false, ?string $cancelTitle = null, ?string $submitTitle = null, string $style = 'primary')
     {
         $this->cancel = $cancel;
         $this->redirectPrevious = $redirectPrevious;
         $this->cancelTitle = $cancelTitle;
         $this->submitTitle = $submitTitle;
         $this->style = $style;
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('blade-forms::components.form.actions');
     }
 
     /**
