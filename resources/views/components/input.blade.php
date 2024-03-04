@@ -1,5 +1,5 @@
 <div class="space-y-2{{ $type === 'hidden' ? ' hidden' : null }}">
-    <x-form-label :label="$label ?? $name" :for="$name" />
+    <x-form-label :label="$label ?? $getName()" :for="$getId()" />
 
     <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
             ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
@@ -37,11 +37,9 @@
                     'pl-8' => ($iconPrefix ?? false) !== false,
                     'pr-8' => ($iconSuffix ?? false) !== false,
                 ]) }}
-                id="{{ $name }}"
-                @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
-                @else
-                name="{{ $name }}"
+                id="{{ $getId() }}"
+                @if($isNotWired())
+                name="{{ $getName() }}"
                 value="{{ $value }}"
                 @endif
                 type="{{ $type }}" />
@@ -65,7 +63,7 @@
         @endif
     </div>
 
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
+    @if($hasErrorAndShow($getName()))
+        <x-form-errors :name="$getName()" />
     @endif
 </div>

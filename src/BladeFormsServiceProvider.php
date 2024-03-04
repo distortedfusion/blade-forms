@@ -68,14 +68,6 @@ class BladeFormsServiceProvider extends ServiceProvider
 
     private function configureBladeDirectives(): void
     {
-        Blade::directive('bind', function ($bind) {
-            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->bind('.$bind.'); ?>';
-        });
-
-        Blade::directive('endbind', function () {
-            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->pop(); ?>';
-        });
-
         Blade::directive('wire', function ($modifier) {
             return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->wire('.$modifier.'); ?>';
         });

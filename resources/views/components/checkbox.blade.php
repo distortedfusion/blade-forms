@@ -7,10 +7,8 @@
             type="checkbox"
             value="{{ $value }}"
 
-            @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
-            @else
-                name="{{ $name }}"
+            @if($isNotWired())
+                name="{{ $getName() }}"
             @endif
 
             @if($checked)
@@ -21,7 +19,7 @@
         <span class="ml-2">{{ $label }}</span>
     </label>
 
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
+    @if($hasErrorAndShow($getName()))
+        <x-form-errors :name="$getName()" />
     @endif
 </div>

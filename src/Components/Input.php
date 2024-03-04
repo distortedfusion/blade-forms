@@ -7,47 +7,26 @@ class Input extends FormComponent
     use Concerns\HandlesValidationErrors;
     use Concerns\HandlesDefaultAndOldValue;
 
-    public string $name;
     public string $label;
     public string $type;
-    public bool $floating;
 
     public $value;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string     $name
-     * @param string     $label
-     * @param string     $type
-     * @param mixed|null $bind
-     * @param mixed|null $default
-     * @param mixed|null $language
-     * @param bool       $showErrors
-     * @param bool       $floating
-     *
-     * @return void
-     */
     public function __construct(
-        string $name,
+        ?string $name = null,
         string $label = '',
         string $type = 'text',
-        $bind = null,
         $default = null,
-        $language = null,
-        bool $showErrors = true,
-        bool $floating = false
+        bool $showErrors = true
     ) {
-        $this->name = $name;
+        parent::__construct(name: $name);
+
         $this->label = $label;
         $this->type = $type;
         $this->showErrors = $showErrors;
-        $this->floating = $floating && $type !== 'hidden';
 
-        if ($language) {
-            $this->name = "{$name}[{$language}]";
+        if (! is_null($name)) {
+            $this->setValue($name, $default);
         }
-
-        $this->setValue($name, $bind, $default, $language);
     }
 }

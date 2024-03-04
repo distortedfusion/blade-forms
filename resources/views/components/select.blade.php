@@ -1,13 +1,11 @@
 <div class="space-y-2">
-    <x-form-label :label="$label ?? $name" :for="$name" />
+    <x-form-label :label="$label ?? $getName()" :for="$getId()" />
 
     <div class="flex rounded-md shadow-sm dark:shadow-none">
         <select
-            id="{{ $name }}"
-            @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
-            @else
-                name="{{ $name }}"
+            id="{{ $getId() }}"
+            @if($isNotWired())
+                name="{{ $getName() }}"
             @endif
 
             @if($multiple)
@@ -36,7 +34,7 @@
         </select>
     </div>
 
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
+    @if($hasErrorAndShow($getName()))
+        <x-form-errors :name="$getName()" />
     @endif
 </div>

@@ -2,41 +2,26 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class Checkbox extends FormComponent
 {
     use Concerns\HandlesValidationErrors;
-    use Concerns\HandlesBoundValues;
 
-    public string $name;
     public string $label;
     public $value;
     public bool $checked = false;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string     $name
-     * @param string     $label
-     * @param mixed      $value
-     * @param mixed|null $bind
-     * @param bool       $default
-     * @param bool       $showErrors
-     *
-     * @return void
-     */
     public function __construct(
-        string $name,
+        ?string $name = null,
         string $label = '',
         $value = 1,
-        $bind = null,
         bool $default = false,
         bool $showErrors = true
     ) {
-        $this->name = $name;
+        parent::__construct(name: $name);
+
         $this->label = $label;
         $this->value = $value;
         $this->showErrors = $showErrors;
@@ -48,19 +33,7 @@ class Checkbox extends FormComponent
         }
 
         if (! session()->hasOldInput() && $this->isNotWired()) {
-            $boundValue = $this->getBoundValue($bind, $inputName);
-
-            if ($boundValue instanceof Arrayable) {
-                $boundValue = $boundValue->toArray();
-            }
-
-            if (is_array($boundValue)) {
-                $this->checked = in_array($value, $boundValue);
-
-                return;
-            }
-
-            $this->checked = is_null($boundValue) ? $default : $boundValue;
+            $this->checked = $default;
         }
     }
 

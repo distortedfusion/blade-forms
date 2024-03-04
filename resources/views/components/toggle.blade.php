@@ -1,14 +1,12 @@
 <div {{ $attributes }}>
     <label class="form-toggle inline-flex items-start">
         <input class="sr-only peer"
-            id="{{ $name }}"
+            id="{{ $getId() }}"
             type="checkbox"
             value="{{ $value }}"
 
-            @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
-            @else
-                name="{{ $name }}"
+            @if($isNotWired())
+                name="{{ $getName() }}"
             @endif
 
             @if($checked)
@@ -39,7 +37,7 @@
         </div>
     </label>
 
-    @if($hasErrorAndShow($name))
-        <x-form-errors :name="$name" />
+    @if($hasErrorAndShow($getName()))
+        <x-form-errors :name="$getName()" />
     @endif
 </div>

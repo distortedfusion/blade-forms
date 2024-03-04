@@ -5,22 +5,20 @@ namespace DistortedFusion\BladeForms\Components;
 class Radio extends FormComponent
 {
     use Concerns\HandlesValidationErrors;
-    use Concerns\HandlesBoundValues;
 
-    public string $name;
     public string $label;
     public $value;
     public bool $checked = false;
 
     public function __construct(
-        string $name,
+        ?string $name = null,
         string $label = '',
         $value = 1,
-        $bind = null,
         bool $default = false,
         bool $showErrors = false
     ) {
-        $this->name = $name;
+        parent::__construct(name: $name);
+
         $this->label = $label;
         $this->value = $value;
         $this->showErrors = $showErrors;
@@ -32,13 +30,7 @@ class Radio extends FormComponent
         }
 
         if (! session()->hasOldInput() && $this->isNotWired()) {
-            $boundValue = $this->getBoundValue($bind, $inputName);
-
-            if (! is_null($boundValue)) {
-                $this->checked = $boundValue == $this->value;
-            } else {
-                $this->checked = $default;
-            }
+            $this->checked = $default;
         }
     }
 

@@ -9,56 +9,30 @@ use Illuminate\Support\Str;
 class Select extends FormComponent
 {
     use Concerns\HandlesValidationErrors;
-    use Concerns\HandlesBoundValues;
 
-    public string $name;
     public string $label;
     public $options;
     public $selectedKey;
     public bool $multiple;
-    public bool $floating;
     public string $placeholder;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string     $name
-     * @param string     $label
-     * @param mixed      $options
-     * @param mixed|null $bind
-     * @param mixed|null $default
-     * @param bool       $multiple
-     * @param bool       $showErrors
-     * @param bool       $manyRelation
-     * @param bool       $floating
-     * @param string     $placeholder
-     *
-     * @return void
-     */
     public function __construct(
-        string $name,
+        ?string $name = null,
         string $label = '',
         $options = [],
-        $bind = null,
         $default = null,
         bool $multiple = false,
         bool $showErrors = true,
-        bool $manyRelation = false,
-        bool $floating = false,
         string $placeholder = ''
     ) {
-        $this->name = $name;
+        parent::__construct(name: $name);
+
         $this->label = $label;
         $this->options = $options;
-        $this->manyRelation = $manyRelation;
         $this->placeholder = $placeholder;
 
         if ($this->isNotWired()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
-
-            if (is_null($default)) {
-                $default = $this->getBoundValue($bind, $inputName);
-            }
 
             $this->selectedKey = old($inputName, $default);
 
@@ -69,7 +43,6 @@ class Select extends FormComponent
 
         $this->multiple = $multiple;
         $this->showErrors = $showErrors;
-        $this->floating = $floating && ! $multiple;
     }
 
     public function isSelected($key): bool

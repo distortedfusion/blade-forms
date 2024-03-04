@@ -4,36 +4,14 @@ namespace DistortedFusion\BladeForms\Components\Concerns;
 
 trait HandlesDefaultAndOldValue
 {
-    use HandlesBoundValues;
-
-    private function setValue(
-        string $name,
-        $bind = null,
-        $default = null,
-        $language = null
-    ) {
+    private function setValue(string $name, $default = null)
+    {
         if ($this->isWired()) {
             return;
         }
 
         $inputName = static::convertBracketsToDots($name);
 
-        if (! $language) {
-            $boundValue = $this->getBoundValue($bind, $inputName);
-
-            $default = is_null($boundValue) ? $default : $boundValue;
-
-            return $this->value = old($inputName, $default);
-        }
-
-        if ($bind !== false) {
-            $bind = $bind ?: $this->getBoundTarget();
-        }
-
-        if ($bind) {
-            $default = $bind->getTranslation($name, $language, false) ?: $default;
-        }
-
-        $this->value = old("{$inputName}.{$language}", $default);
+        return $this->value = old($inputName, $default);
     }
 }

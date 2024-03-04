@@ -3,18 +3,19 @@
 namespace DistortedFusion\BladeForms\Components;
 
 use Closure;
-use DistortedFusion\BladeForms\FormDataBinder;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
+use RuntimeException;
 
 abstract class FormComponent extends Component
 {
-    /**
-     * ID for this component.
-     *
-     * @var string
-     */
-    private $id;
+    public ?string $id = null;
+    public ?string $name = null;
+
+    public function __construct(?string $name = null)
+    {
+        $this->name = $name;
+    }
 
     /**
      * Get the view / view contents that represent the component.
@@ -29,17 +30,64 @@ abstract class FormComponent extends Component
     }
 
     /**
+     * Generates an ID, once, for this component.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        if (is_null($this->id)) {
+            $this->id = $this->idByName();
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * Generates an ID by the name attribute.
+     *
+     * @return string
+     */
+    private function idByName(): string
+    {
+        return $this->getName().'-'.Str::random(4);
+    }
+
+    public function getName(): string
+    {
+        if ($this->isNotWired() && ! is_null($this->name)) {
+            return $this->name;
+        }
+
+        if ($this->isWired() && $this->hasWireModelIdentifier()) {
+            return $this->getWireModelIdentifier();
+        }
+
+        throw new RuntimeException('No valid `name` or `wire:model` attribute set.');
+    }
+
+    private function hasWireModelIdentifier(): bool
+    {
+        return ! is_null($this->getWireModelIdentifier());
+    }
+
+    private function getWireModelIdentifier(): ?string
+    {
+        if (is_null($this->attributes) || $this->attributes->whereStartsWith('wire:model')->isEmpty()) {
+            return null;
+        }
+
+        return $this->attributes->whereStartsWith('wire:model')->first();
+    }
+
+    /**
      * Returns a boolean wether the form is wired to a Livewire component.
      *
      * @return bool
      */
     public function isWired(): bool
     {
-        if ($this->attributes && count($this->attributes->whereStartsWith('wire:model')->getIterator())) {
-            return false;
-        }
-
-        return app(FormDataBinder::class)->isWired();
+        return $this->hasWireModelIdentifier();
     }
 
     /**
@@ -50,46 +98,6 @@ abstract class FormComponent extends Component
     public function isNotWired(): bool
     {
         return ! $this->isWired();
-    }
-
-    /**
-     * Returns the optional wire modifier.
-     *
-     * @return string
-     */
-    public function wireModifier(): ?string
-    {
-        $modifier = app(FormDataBinder::class)->getWireModifier();
-
-        return $modifier ? ".{$modifier}" : null;
-    }
-
-    /**
-     * Generates an ID, once, for this component.
-     *
-     * @return string
-     */
-    public function id(): string
-    {
-        if ($this->id) {
-            return $this->id;
-        }
-
-        if ($this->name) {
-            return $this->id = $this->generateIdByName();
-        }
-
-        return $this->id = Str::random(4);
-    }
-
-    /**
-     * Generates an ID by the name attribute.
-     *
-     * @return string
-     */
-    protected function generateIdByName(): string
-    {
-        return 'auto_id_'.$this->name;
     }
 
     /**
