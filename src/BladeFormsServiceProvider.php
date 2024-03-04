@@ -2,7 +2,6 @@
 
 namespace DistortedFusion\BladeForms;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
@@ -20,10 +19,6 @@ class BladeFormsServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(DF_BF_PATH.'/config/blade-forms.php', 'blade-forms');
-
-        // DEPRECATED
-        $this->app->singleton(FormDataBinder::class, fn () => new FormDataBinder());
-        // END-DEPRECATED
     }
 
     /**
@@ -36,7 +31,6 @@ class BladeFormsServiceProvider extends ServiceProvider
         $this->offerPublishing();
         $this->registerResources();
         $this->configureBladeComponents();
-        $this->configureBladeDirectives();
     }
 
     private function offerPublishing(): void
@@ -63,17 +57,6 @@ class BladeFormsServiceProvider extends ServiceProvider
             foreach (config('blade-forms.components', []) as $alias => $component) {
                 $blade->component($component, $alias);
             }
-        });
-    }
-
-    private function configureBladeDirectives(): void
-    {
-        Blade::directive('wire', function ($modifier) {
-            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->wire('.$modifier.'); ?>';
-        });
-
-        Blade::directive('endwire', function () {
-            return '<?php app(\DistortedFusion\BladeForms\FormDataBinder::class)->endWire(); ?>';
         });
     }
 }
