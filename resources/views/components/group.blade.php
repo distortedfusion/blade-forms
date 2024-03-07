@@ -5,7 +5,7 @@
         {!! $slot !!}
     </div>
 
-    @if($hasErrorAndShow($getName()))
-        <x-form-errors :name="$getName()" />
+    @if($hasErrorAndShow($getErrorName()))
+        <x-form-errors :name="$getErrorName()" />
     @endif
 </div>

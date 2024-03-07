@@ -18,6 +18,7 @@ class Select extends FormComponent
 
     public function __construct(
         ?string $name = null,
+        ?string $errorName = null,
         string $label = '',
         $options = [],
         $default = null,
@@ -25,7 +26,7 @@ class Select extends FormComponent
         bool $showErrors = true,
         string $placeholder = ''
     ) {
-        parent::__construct(name: $name);
+        parent::__construct(name: $name, errorName: $errorName);
 
         $this->label = $label;
         $this->options = $options;

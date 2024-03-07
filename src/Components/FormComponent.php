@@ -11,10 +11,12 @@ abstract class FormComponent extends Component
 {
     public ?string $id = null;
     public ?string $name = null;
+    public ?string $errorName = null;
 
-    public function __construct(?string $name = null)
+    public function __construct(?string $name = null, ?string $errorName = null)
     {
         $this->name = $name;
+        $this->errorName = $errorName;
     }
 
     /**
@@ -64,6 +66,15 @@ abstract class FormComponent extends Component
         }
 
         throw new RuntimeException('No valid `name` or `wire:model` attribute set.');
+    }
+
+    public function getErrorName(): string
+    {
+        if (! is_null($this->errorName)) {
+            return $this->errorName;
+        }
+
+        return $this->getName();
     }
 
     private function hasWireModelIdentifier(): bool

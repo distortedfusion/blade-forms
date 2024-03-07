@@ -13,11 +13,12 @@ class Range extends FormComponent
 
     public function __construct(
         ?string $name = null,
+        ?string $errorName = null,
         string $label = '',
         $default = null,
         bool $showErrors = true
     ) {
-        parent::__construct(name: $name);
+        parent::__construct(name: $name, errorName: $errorName);
 
         $this->label = $label;
         $this->showErrors = $showErrors;

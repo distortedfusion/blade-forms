@@ -15,12 +15,13 @@ class Checkbox extends FormComponent
 
     public function __construct(
         ?string $name = null,
+        ?string $errorName = null,
         string $label = '',
         $value = 1,
         bool $default = false,
         bool $showErrors = true
     ) {
-        parent::__construct(name: $name);
+        parent::__construct(name: $name, errorName: $errorName);
 
         $this->label = $label;
         $this->value = $value;

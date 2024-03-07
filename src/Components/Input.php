@@ -14,12 +14,13 @@ class Input extends FormComponent
 
     public function __construct(
         ?string $name = null,
+        ?string $errorName = null,
         string $label = '',
         string $type = 'text',
         $default = null,
         bool $showErrors = true
     ) {
-        parent::__construct(name: $name);
+        parent::__construct(name: $name, errorName: $errorName);
 
         $this->label = $label;
         $this->type = $type;
