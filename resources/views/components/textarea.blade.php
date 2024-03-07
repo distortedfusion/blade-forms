@@ -16,8 +16,8 @@
                 'ring-0 focus:border-brand-500 focus:ring-1 focus:ring-brand-500',
                 'disabled:bg-gray-100 disabled:border-gray-300 read-only:bg-gray-100 read-only:border-gray-300',
                 'focus:disabled:ring-gray-300 focus:disabled:border-gray-300 focus:read-only:ring-gray-300 focus:read-only:border-gray-300',
-                'rounded-l-md' => ($prefix ?? false) === false,
-                'rounded-r-md' => ($suffix ?? false) === false,
+                'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
+                'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
             ]) }}></textarea>
     </div>
 
