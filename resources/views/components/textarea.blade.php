@@ -18,7 +18,7 @@
                 'focus:disabled:ring-gray-300 focus:disabled:border-gray-300 focus:read-only:ring-gray-300 focus:read-only:border-gray-300',
                 'rounded-l-md' => ($prefix ?? false) === false,
                 'rounded-r-md' => ($suffix ?? false) === false,
-            ]) }}>@unless($isWired()){!! $value !!}@endunless</textarea>
+            ]) }}></textarea>
     </div>
 
     @if($hasErrorAndShow($getName()))
