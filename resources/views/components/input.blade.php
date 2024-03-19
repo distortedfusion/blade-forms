@@ -4,7 +4,11 @@
     <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
             ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
             : 'rounded-md'
-        }}">
+        }}"
+        @if($attributes->has('wire:ignore'))
+        wire:ignore
+        @endif
+        >
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
@@ -23,7 +27,7 @@
                     {{ $iconPrefix }}
                 </span>
             @endif
-            <input {{ $attributes->class([
+            <input {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full h-full text-base sm:text-sm',
                     'placeholder:text-gray-400 dark:placeholder:text-gray-600',
                     'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
