@@ -45,6 +45,8 @@
                 @if($isNotWired())
                 name="{{ $getName() }}"
                 value="{{ $value }}"
+                @else
+                x-ref="{{ $getName() }}"
                 @endif
                 type="{{ $type }}" />
             @if($iconSuffix ?? false)
