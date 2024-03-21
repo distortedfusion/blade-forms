@@ -28,7 +28,8 @@
                 </span>
             @endif
             <input {{ $attributes->except(['wire:ignore'])->class([
-                    'form-input block w-full h-full text-base sm:text-sm',
+                    'form-input block w-full',
+                    'text-base sm:text-sm leading-6 sm:leading-6 py-2 h-[2.625rem]',
                     'placeholder:text-gray-400 dark:placeholder:text-gray-600',
                     'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
                     'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
