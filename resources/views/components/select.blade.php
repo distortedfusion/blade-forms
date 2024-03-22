@@ -18,8 +18,6 @@
             id="{{ $getId() }}"
             @if($isNotWired())
             name="{{ $getName() }}"
-            @else
-            x-ref="{{ $getName() }}"
             @endif
             @if($multiple)
                 multiple

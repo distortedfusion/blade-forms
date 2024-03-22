@@ -68,11 +68,6 @@ abstract class FormComponent extends Component
         throw new RuntimeException('No valid `name` or `wire:model` attribute set.');
     }
 
-    public function getRef(): string
-    {
-        return Str::replace('.', '_', $this->getName());
-    }
-
     public function getErrorName(): string
     {
         if (! is_null($this->errorName)) {
