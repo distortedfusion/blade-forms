@@ -3,6 +3,7 @@
         <input {{ $attributes->class([
                 'form-radio',
                 'text-brand-500 border-gray-300',
+                'focus:ring-brand-500',
             ]) }}
             type="radio"
 
