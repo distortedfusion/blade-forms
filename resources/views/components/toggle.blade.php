@@ -1,4 +1,4 @@
-<div {{ $attributes }}>
+<div>
     <label class="form-toggle inline-flex items-start">
         <input class="sr-only peer"
             id="{{ $getId() }}"
@@ -16,6 +16,8 @@
             @if($disabled)
                 disabled
             @endif
+
+            {{ $attributes->except(['checked', 'disabled', 'name', 'value', 'id']) }}
         />
         <div class="{{ implode(' ', [
             'flex-shrink-0 h-6 w-10 inline-block relative border-none bg-gray-300 shadow-inner absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full cursor-pointer',
