@@ -1,5 +1,5 @@
 <div>
-    <label class="inline-flex items-center">
+    <label class="inline-flex items-center cursor-pointer">
         <input {{ $attributes->class([
                 'form-radio',
                 'text-brand-500 border-gray-300',
