@@ -6,7 +6,7 @@
         '[&:has(input:disabled)]:bg-gray-100 [&:has(input:disabled)]:border-gray-300',
         'transition-[background-color,_box-shadow,_border-color]',
     ])}}">
-        <label class="w-full flex items-center px-4 py-2 cursor-pointer">
+        <label class="w-full flex items-center px-4 py-2 cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
             <input {{ $attributes->class([
                     'form-checkbox',
                     'text-brand-500 border-gray-300',

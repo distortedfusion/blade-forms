@@ -1,5 +1,5 @@
 <div>
-    <label class="inline-flex items-center cursor-pointer">
+    <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input {{ $attributes->class([
                 'form-radio',
                 'text-brand-500 border-gray-300',

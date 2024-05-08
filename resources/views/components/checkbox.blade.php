@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-    <label class="flex items-center">
+    <label class="flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input {{ $attributes->class([
                 'form-checkbox',
                 'text-brand-500 border-gray-300',
