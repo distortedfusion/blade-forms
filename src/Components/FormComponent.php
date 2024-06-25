@@ -84,7 +84,7 @@ abstract class FormComponent extends Component
 
     private function getWireModelIdentifier(): ?string
     {
-        if (is_null($this->attributes) || $this->attributes->whereStartsWith('wire:model')->isEmpty()) {
+        if (is_null($this->attributes) || empty($this->attributes->whereStartsWith('wire:model')->getAttributes())) {
             return null;
         }
 
