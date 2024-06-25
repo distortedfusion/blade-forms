@@ -16,9 +16,10 @@ return [
         'form.sections' => 'blade-forms::components.section-group',
 
         // Form components...
-        'form-icon' => 'blade-forms::components.icon',
         'form-button' => Components\Button::class,
         'form-help' => Components\Help::class,
+        'form-icon' => 'blade-forms::components.icon',
+        'form-pulser' => 'blade-forms::components.pulser',
         'form-select.description' => Components\SelectDescription::class,
         'form-toggle' => Components\Toggle::class,
 

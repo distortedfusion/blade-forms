@@ -4,7 +4,7 @@
 ]) }}>
     @if($isWired())
         <div class="hidden" wire:loading.block>
-            <x-layout.pulser />
+            <x-form-pulser />
         </div>
     @endif
     <div @if($isWired())wire:loading.class="hidden"@endif>
