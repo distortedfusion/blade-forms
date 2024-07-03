@@ -1,6 +1,4 @@
-<section {{ $attributes->class([
-    'pt-8 space-y-4',
-]) }}>
+<section {{ $attributes->class(['space-y-4']) }}>
     @if($title)
         <div class="flex items-center justify-between">
             <div class="flex-grow">
