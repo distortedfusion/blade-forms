@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
+    <x-form-grid :attributes="$getGridAttributeBag()->class(['gap-x-4 gap-y-6'])">
         {{ $slot }}
-    </div>
+    </x-form-grid>
 </section>

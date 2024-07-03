@@ -14,9 +14,9 @@ class Select extends FormComponent
     public $options;
     public $selectedKey;
     public bool $multiple;
-    public string $placeholder;
 
     public function __construct(
+        ?string $id = null,
         ?string $name = null,
         ?string $errorName = null,
         string $label = '',
@@ -24,13 +24,19 @@ class Select extends FormComponent
         $default = null,
         bool $multiple = false,
         bool $showErrors = true,
-        string $placeholder = ''
+        array|int|string $columnSpan = [],
+        array|int $columnStart = []
     ) {
-        parent::__construct(name: $name, errorName: $errorName);
+        parent::__construct(
+            id: $id,
+            name: $name,
+            errorName: $errorName,
+            columnSpan: $columnSpan,
+            columnStart: $columnStart
+        );
 
         $this->label = $label;
         $this->options = $options;
-        $this->placeholder = $placeholder;
 
         if ($this->isNotWired()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));

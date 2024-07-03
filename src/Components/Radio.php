@@ -11,14 +11,23 @@ class Radio extends FormComponent
     public bool $checked = false;
 
     public function __construct(
+        ?string $id = null,
         ?string $name = null,
         ?string $errorName = null,
         string $label = '',
         $value = 1,
         bool $default = false,
-        bool $showErrors = false
+        bool $showErrors = false,
+        array|int|string $columnSpan = [],
+        array|int $columnStart = []
     ) {
-        parent::__construct(name: $name, errorName: $errorName);
+        parent::__construct(
+            id: $id,
+            name: $name,
+            errorName: $errorName,
+            columnSpan: $columnSpan,
+            columnStart: $columnStart
+        );
 
         $this->label = $label;
         $this->value = $value;

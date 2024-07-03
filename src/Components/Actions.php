@@ -2,9 +2,13 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
+use Closure;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\URL;
+use Illuminate\View\Component;
 
-class Actions extends FormComponent
+class Actions extends Component
 {
     public ?string $cancel;
     public bool $redirectPrevious;
@@ -46,5 +50,15 @@ class Actions extends FormComponent
         $previous = URL::previous();
 
         return $previous && $previous !== URL::current() ? $previous : $this->cancel;
+    }
+
+    /**
+     * Get the view / view contents that represent the component.
+     *
+     * @return View|Htmlable|Closure|string
+     */
+    public function render()
+    {
+        return view('blade-forms::components.actions');
     }
 }

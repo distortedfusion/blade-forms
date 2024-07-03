@@ -4,14 +4,7 @@
     <div class="flex-1 w-full mt-2 md:mt-0">
         @if ($cancelButton ?? false)
             {{ $cancelButton }}
-        @elseif($isWired() && method_exists($this, 'redirectWithPrevious') && $redirectPrevious)
-            {{-- In a livewire context with the `\DistortedFusion\LivewireSupport\RedirectsWithPrevious` trait use the `redirectWithPrevious` method instead, this resolves an issue where form updates change the previous URL. --}}
-            <x-btn style="default" class="w-full"
-                wire:click="redirectWithPrevious('{{ $cancel }}')">
-                {{ $cancelTitle ?: __('Cancel') }}
-            </x-btn>
         @else
-            {{-- In standard HTML forms use the session based previous URL. --}}
             <x-btn style="default" class="w-full" :href="$cancelUrl()">
                 {{ $cancelTitle ?: __('Cancel') }}
             </x-btn>

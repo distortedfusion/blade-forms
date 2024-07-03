@@ -9,13 +9,16 @@ return [
     // END-DEPRECATED
 
     'components' => [
-        // Form...
         'form.actions' => Components\Actions::class,
+
+        'form-grid' => 'blade-forms::components.grid.index',
+        'form-grid-column' => 'blade-forms::components.grid.column',
+
         'form.section' => Components\Section::class,
         'form.section-title' => Components\SectionTitle::class,
         'form.sections' => 'blade-forms::components.section-group',
 
-        // Form components...
+        // Form Elements...
         'form-button' => Components\Button::class,
         'form-help' => Components\Help::class,
         'form-icon' => 'blade-forms::components.icon',
@@ -23,7 +26,7 @@ return [
         'form-select.description' => Components\SelectDescription::class,
         'form-toggle' => Components\Toggle::class,
 
-        // Ported form componensts...
+        // Form components...
         'form' => Components\Form::class,
         'form-checkbox' => Components\Checkbox::class,
         'form-checkbox-button' => Components\CheckboxButton::class,

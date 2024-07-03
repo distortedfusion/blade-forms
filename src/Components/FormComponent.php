@@ -3,6 +3,7 @@
 namespace DistortedFusion\BladeForms\Components;
 
 use Closure;
+use DistortedFusion\BladeForms\Components\Concerns\CanSpanColumns;
 use DistortedFusion\BladeForms\Components\Concerns\InteractsWithAlpineProperties;
 use DistortedFusion\BladeForms\Components\Concerns\InteractsWithLivewireProperties;
 use Illuminate\Contracts\Support\Htmlable;
@@ -13,6 +14,7 @@ use RuntimeException;
 
 abstract class FormComponent extends Component
 {
+    use CanSpanColumns;
     use InteractsWithAlpineProperties;
     use InteractsWithLivewireProperties;
 
@@ -20,11 +22,19 @@ abstract class FormComponent extends Component
     public ?string $name = null;
     public ?string $errorName = null;
 
-    public function __construct(?string $id = null, ?string $name = null, ?string $errorName = null)
-    {
+    public function __construct(
+        ?string $id = null,
+        ?string $name = null,
+        ?string $errorName = null,
+        array|int|string $columnSpan = [],
+        array|int $columnStart = []
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->errorName = $errorName;
+
+        $this->columnSpan($columnSpan);
+        $this->columnStart($columnStart);
     }
 
     /**
@@ -94,5 +104,17 @@ abstract class FormComponent extends Component
         }
 
         return $this->getName();
+    }
+
+    /**
+     * Converts a bracket-notation to a dotted-notation.
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    protected static function convertBracketsToDots($name): string
+    {
+        return str_replace(['[', ']'], ['.', ''], $name);
     }
 }

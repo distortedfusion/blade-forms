@@ -1,4 +1,8 @@
-<div class="space-y-2{{ $type === 'hidden' ? ' hidden' : null }}">
+<x-form-grid-column :attributes="$getColumnAttributeBag()->merge([
+    'hidden' => $type === 'hidden',
+])->class([
+    'space-y-2'
+])">
     <x-form-label :label="$label ?? $getName()" :for="$getId()" />
 
     <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
@@ -66,7 +70,7 @@
                 {{ $suffix }}
             </span>
         @endif
-    </div>
+    </x-form-grid-column>
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

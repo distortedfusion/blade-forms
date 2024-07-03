@@ -2,6 +2,9 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
+use Closure;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Button extends Component
@@ -42,9 +45,9 @@ class Button extends Component
     }
 
     /**
-     * Get the view / contents that represent the component.
+     * Get the view / view contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return View|Htmlable|Closure|string
      */
     public function render()
     {
