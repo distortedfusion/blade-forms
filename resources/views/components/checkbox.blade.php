@@ -1,8 +1,11 @@
-<div class="flex flex-col">
-    <label class="flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
+<x-form-grid-column :attributes="$getColumnAttributeBag()->class([
+    'space-y-2'
+])">
+    <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input {{ $attributes->class([
                 'form-checkbox',
                 'text-brand-500 border-gray-300',
+                'focus:ring-brand-500',
             ]) }}
             type="checkbox"
             value="{{ $value }}"
@@ -16,10 +19,10 @@
             @endif
         />
 
-        <span class="ml-2">{{ $label }}</span>
+        <span class="ml-2 font-semibold">{{ $label }}</span>
     </label>
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
-</div>
+</x-form-grid-column>

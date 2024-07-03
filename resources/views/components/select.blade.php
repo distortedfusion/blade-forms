@@ -1,4 +1,6 @@
-<div class="space-y-2">
+<x-form-grid-column :attributes="$getColumnAttributeBag()->class([
+    'space-y-2'
+])">
     <x-form-label :label="$label ?? $getName()" :for="$getId()" />
 
     <div class="flex items-center rounded-md shadow-sm dark:shadow-none">
@@ -36,4 +38,4 @@
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
-</div>
+</x-form-grid-column>

@@ -26,7 +26,7 @@
             'peer-disabled:after:bg-gray-100',
         ]) }}"></div>
 
-        <div class="ml-4 cursor-pointer peer-disabled:cursor-not-allowed">
+        <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
             @if ($description ?? false)

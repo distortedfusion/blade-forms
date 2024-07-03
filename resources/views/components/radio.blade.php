@@ -1,4 +1,6 @@
-<div>
+<x-form-grid-column :attributes="$getColumnAttributeBag()->class([
+    'space-y-2'
+])">
     <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input {{ $attributes->class([
                 'form-radio',
@@ -6,12 +8,11 @@
                 'focus:ring-brand-500',
             ]) }}
             type="radio"
+            value="{{ $value }}"
 
             @if($isNotWired())
                 name="{{ $getName() }}"
             @endif
-
-            value="{{ $value }}"
 
             @if($checked)
                 checked="checked"
@@ -24,4 +25,4 @@
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
-</div>
+</x-form-grid-column>

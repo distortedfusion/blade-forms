@@ -70,9 +70,9 @@
                 {{ $suffix }}
             </span>
         @endif
-    </x-form-grid-column>
+    </div>
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
-</div>
+</x-form-grid-column>
