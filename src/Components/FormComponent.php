@@ -3,18 +3,26 @@
 namespace DistortedFusion\BladeForms\Components;
 
 use Closure;
+use DistortedFusion\BladeForms\Components\Concerns\InteractsWithAlpineProperties;
+use DistortedFusion\BladeForms\Components\Concerns\InteractsWithLivewireProperties;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use RuntimeException;
 
 abstract class FormComponent extends Component
 {
+    use InteractsWithAlpineProperties;
+    use InteractsWithLivewireProperties;
+
     public ?string $id = null;
     public ?string $name = null;
     public ?string $errorName = null;
 
-    public function __construct(?string $name = null, ?string $errorName = null)
+    public function __construct(?string $id = null, ?string $name = null, ?string $errorName = null)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->errorName = $errorName;
     }
@@ -22,7 +30,7 @@ abstract class FormComponent extends Component
     /**
      * Get the view / view contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|Closure|string
+     * @return View|Htmlable|Closure|string
      */
     public function render()
     {
@@ -32,42 +40,53 @@ abstract class FormComponent extends Component
     }
 
     /**
-     * Generates an ID, once, for this component.
+     * Get the `id` attribute, generates an ID based on the `name` when none
+     * is provided.
      *
      * @return string
      */
     public function getId(): string
     {
         if (is_null($this->id)) {
-            $this->id = $this->idByName();
+            $this->id = $this->generateIdUsingNameAttribute();
         }
 
         return $this->id;
     }
 
     /**
-     * Generates an ID by the name attribute.
+     * Generates an ID using the name attribute.
      *
      * @return string
      */
-    private function idByName(): string
+    private function generateIdUsingNameAttribute(): string
     {
         return $this->getName().'-'.Str::random(4);
     }
 
+    /**
+     * Get the `name` attribute.
+     *
+     * @return string
+     */
     public function getName(): string
     {
-        if ($this->isNotWired() && ! is_null($this->name)) {
+        if ($this->hasWireModelAttribute()) {
+            return $this->getWireModelAttribute();
+        }
+
+        if (! is_null($this->name)) {
             return $this->name;
         }
 
-        if ($this->isWired() && $this->hasWireModelIdentifier()) {
-            return $this->getWireModelIdentifier();
-        }
-
-        throw new RuntimeException('No valid `name` or `wire:model` attribute set.');
+        throw new RuntimeException('No valid `name`, `wire:model` or `x-model` attribute set.');
     }
 
+    /**
+     * Get the identifier used for error messages, falls back to the `name` attribute.
+     *
+     * @return string
+     */
     public function getErrorName(): string
     {
         if (! is_null($this->errorName)) {
@@ -75,51 +94,5 @@ abstract class FormComponent extends Component
         }
 
         return $this->getName();
-    }
-
-    private function hasWireModelIdentifier(): bool
-    {
-        return ! is_null($this->getWireModelIdentifier());
-    }
-
-    private function getWireModelIdentifier(): ?string
-    {
-        if (is_null($this->attributes) || empty($this->attributes->whereStartsWith('wire:model')->getAttributes())) {
-            return null;
-        }
-
-        return $this->attributes->whereStartsWith('wire:model')->first();
-    }
-
-    /**
-     * Returns a boolean wether the form is wired to a Livewire component.
-     *
-     * @return bool
-     */
-    public function isWired(): bool
-    {
-        return $this->hasWireModelIdentifier();
-    }
-
-    /**
-     * The inversion of 'isWired()'.
-     *
-     * @return bool
-     */
-    public function isNotWired(): bool
-    {
-        return ! $this->isWired();
-    }
-
-    /**
-     * Converts a bracket-notation to a dotted-notation.
-     *
-     * @param string $name
-     *
-     * @return string
-     */
-    protected static function convertBracketsToDots($name): string
-    {
-        return str_replace(['[', ']'], ['.', ''], $name);
     }
 }
