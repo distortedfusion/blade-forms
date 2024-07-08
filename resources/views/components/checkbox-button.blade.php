@@ -15,7 +15,7 @@
                 ]) }}
                 type="checkbox"
                 value="{{ $value }}"
-                @if($isNotWired())
+                @if($forNative())
                     name="{{ $getName() }}"
                 @endif
                 @if($checked)

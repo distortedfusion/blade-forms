@@ -6,7 +6,7 @@ trait HandlesDefaultAndOldValue
 {
     private function setValue(string $name, $default = null)
     {
-        if ($this->isWired()) {
+        if ($this->forLivewire()) {
             return;
         }
 

@@ -4,8 +4,7 @@ namespace DistortedFusion\BladeForms\Components;
 
 use Closure;
 use DistortedFusion\BladeForms\Components\Concerns\CanSpanColumns;
-use DistortedFusion\BladeForms\Components\Concerns\InteractsWithAlpineProperties;
-use DistortedFusion\BladeForms\Components\Concerns\InteractsWithLivewireProperties;
+use DistortedFusion\BladeForms\Components\Concerns\InteractsWithAttributes;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
@@ -15,8 +14,10 @@ use RuntimeException;
 abstract class FormComponent extends Component
 {
     use CanSpanColumns;
-    use InteractsWithAlpineProperties;
-    use InteractsWithLivewireProperties;
+    use InteractsWithAttributes;
+
+    public const ALPINE_MODEL_ATTRIBUTE = 'x-model';
+    public const WIRE_MODEL_ATTRIBUTE = 'wire:model';
 
     public ?string $id = null;
     public ?string $name = null;
@@ -81,10 +82,17 @@ abstract class FormComponent extends Component
      */
     public function getName(): string
     {
-        if ($this->hasWireModelAttribute()) {
-            return $this->getWireModelAttribute();
+        // Alpine context...
+        if ($this->hasAttribute(static::ALPINE_MODEL_ATTRIBUTE)) {
+            return $this->getAttribute(static::ALPINE_MODEL_ATTRIBUTE);
         }
 
+        // Livewire context...
+        if ($this->hasAttribute(static::WIRE_MODEL_ATTRIBUTE)) {
+            return $this->getAttribute(static::WIRE_MODEL_ATTRIBUTE);
+        }
+
+        // Native context...
         if (! is_null($this->name)) {
             return $this->name;
         }

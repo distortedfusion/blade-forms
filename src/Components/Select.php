@@ -38,7 +38,7 @@ class Select extends FormComponent
         $this->label = $label;
         $this->options = $options;
 
-        if ($this->isNotWired()) {
+        if ($this->forNative()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
             $this->selectedKey = old($inputName, $default);
@@ -54,7 +54,7 @@ class Select extends FormComponent
 
     public function isSelected($key): bool
     {
-        if ($this->isWired()) {
+        if ($this->forLivewire()) {
             return false;
         }
 
@@ -63,7 +63,7 @@ class Select extends FormComponent
 
     public function nothingSelected(): bool
     {
-        if ($this->isWired()) {
+        if ($this->forLivewire()) {
             return false;
         }
 

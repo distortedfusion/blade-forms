@@ -6,7 +6,7 @@
     <div class="flex rounded-md shadow-sm dark:shadow-none">
         <textarea
             id="{{ $getId() }}"
-            @if($isNotWired())
+            @if($forNative())
                 name="{{ $getName() }}"
             @endif
             {{ $attributes->class([

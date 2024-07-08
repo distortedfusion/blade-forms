@@ -39,7 +39,7 @@ class Radio extends FormComponent
             $this->checked = old($inputName) == $value;
         }
 
-        if (! session()->hasOldInput() && $this->isNotWired()) {
+        if (! session()->hasOldInput() && $this->forNative()) {
             $this->checked = $default;
         }
     }

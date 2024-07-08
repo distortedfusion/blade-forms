@@ -47,7 +47,7 @@
                     'pr-8' => ($iconSuffix ?? false) !== false,
                 ]) }}
                 id="{{ $getId() }}"
-                @if($isNotWired())
+                @if($forNative())
                 name="{{ $getName() }}"
                 value="{{ $value }}"
                 @endif

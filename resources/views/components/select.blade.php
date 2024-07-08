@@ -18,7 +18,7 @@
                 'rounded-r-md' => ($suffix ?? false) === false,
             ]) }}
             id="{{ $getId() }}"
-            @if($isNotWired())
+            @if($forNative())
             name="{{ $getName() }}"
             @endif
             @if($multiple)

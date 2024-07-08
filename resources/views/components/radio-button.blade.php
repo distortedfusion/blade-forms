@@ -13,7 +13,7 @@
                     'focus:ring-brand-500',
                 ]) }}
                 type="radio"
-                @if($isNotWired())
+                @if($forNative())
                     name="{{ $getName() }}"
                 @endif
                 value="{{ $value }}"

@@ -42,7 +42,7 @@ class Checkbox extends FormComponent
             $this->checked = in_array($value, Arr::wrap($oldData));
         }
 
-        if (! session()->hasOldInput() && $this->isNotWired()) {
+        if (! session()->hasOldInput() && $this->forNative()) {
             $this->checked = $default;
         }
     }
