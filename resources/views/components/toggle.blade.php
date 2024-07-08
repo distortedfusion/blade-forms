@@ -6,15 +6,14 @@
             value="{{ $value }}"
 
             @if($forNative())
-                name="{{ $getName() }}"
+            name="{{ $getName() }}"
             @endif
 
-            @if($checked)
-                checked="checked"
+            @if($isChecked())
+            checked="checked"
             @endif
 
-            {{ $attributes->except(['checked', 'name', 'value', 'id']) }}
-        />
+            {{ $attributes }} />
         <div class="{{ implode(' ', [
             'flex-shrink-0 h-6 w-10 inline-block relative border-none bg-gray-300 shadow-inner absolute inset-0 ring-0 ring-brand-500 ring-opacity-0 rounded-full cursor-pointer',
             '[transition:color_.15s_ease-out,_box-shadow_.2s_ease-in-out]',
@@ -29,7 +28,7 @@
         <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
-            @if ($description ?? false)
+            @if($description ?? false)
                 <x-form-help class="mt-0">{{ $description }}</x-form-help>
             @endif
         </div>

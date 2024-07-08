@@ -8,7 +8,6 @@ class Radio extends FormComponent
 
     public string $label;
     public $value;
-    public bool $checked = false;
 
     public function __construct(
         ?string $id = null,
@@ -33,12 +32,23 @@ class Radio extends FormComponent
         $this->value = $value;
         $this->showErrors = $showErrors;
 
-        if (! is_null($old = old($this->getName()))) {
-            $this->checked = $old == $value;
+        $this->default($default);
+    }
+
+    public function isChecked(): bool
+    {
+        if (! $this->forNative()) {
+            return false;
         }
 
-        if (! session()->hasOldInput() && $this->forNative()) {
-            $this->checked = $default;
+        if (! is_null($old = old($this->getName()))) {
+            return $old == $this->value;
         }
+
+        if (! session()->hasOldInput()) {
+            return $this->default;
+        }
+
+        return false;
     }
 }

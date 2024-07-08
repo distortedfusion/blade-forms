@@ -4,6 +4,7 @@ namespace DistortedFusion\BladeForms\Components;
 
 use Closure;
 use DistortedFusion\BladeForms\Components\Concerns\CanSpanColumns;
+use DistortedFusion\BladeForms\Components\Concerns\HasDefaultState;
 use DistortedFusion\BladeForms\Components\Concerns\InteractsWithAttributes;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\View;
@@ -14,6 +15,7 @@ use RuntimeException;
 abstract class FormComponent extends Component
 {
     use CanSpanColumns;
+    use HasDefaultState;
     use InteractsWithAttributes;
 
     public const ALPINE_MODEL_ATTRIBUTE = 'x-model';
@@ -28,7 +30,7 @@ abstract class FormComponent extends Component
         ?string $name = null,
         ?string $errorName = null,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -112,17 +114,5 @@ abstract class FormComponent extends Component
         }
 
         return $this->getName();
-    }
-
-    /**
-     * Converts a bracket-notation to a dotted-notation.
-     *
-     * @param string $name
-     *
-     * @return string
-     */
-    protected static function convertBracketsToDots($name): string
-    {
-        return str_replace(['[', ']'], ['.', ''], $name);
     }
 }

@@ -31,7 +31,15 @@
                     {{ $iconPrefix }}
                 </span>
             @endif
-            <input {{ $attributes->except(['wire:ignore'])->class([
+            <input id="{{ $getId() }}"
+                type="{{ $type }}"
+
+                @if($forNative())
+                name="{{ $getName() }}"
+                value="{{ $value }}"
+                @endif
+
+                {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full',
                     'text-base sm:text-sm leading-6 sm:leading-6 py-2 h-[2.625rem]',
                     'placeholder:text-gray-400 dark:placeholder:text-gray-600',
@@ -45,13 +53,7 @@
                     'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'pl-8' => ($iconPrefix ?? false) !== false,
                     'pr-8' => ($iconSuffix ?? false) !== false,
-                ]) }}
-                id="{{ $getId() }}"
-                @if($forNative())
-                name="{{ $getName() }}"
-                value="{{ $value }}"
-                @endif
-                type="{{ $type }}" />
+                ]) }} />
             @if($iconSuffix ?? false)
                 <span {{ $iconSuffix->attributes->class([
                     'absolute right-2 inset-y-0',

@@ -7,20 +7,23 @@
         'transition-[background-color,_box-shadow,_border-color]',
     ])}}">
         <label class="w-full flex items-center px-4 py-2 cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
-            <input {{ $attributes->class([
+            <input id="{{ $getId() }}"
+                type="radio"
+                value="{{ $value }}"
+
+                @if($forNative())
+                name="{{ $getName() }}"
+                @endif
+
+                @if($isChecked())
+                checked="checked"
+                @endif
+
+                {{ $attributes->class([
                     'form-radio',
                     'text-brand-500 border-gray-300',
                     'focus:ring-brand-500',
-                ]) }}
-                type="radio"
-                @if($forNative())
-                    name="{{ $getName() }}"
-                @endif
-                value="{{ $value }}"
-                @if($checked)
-                    checked="checked"
-                @endif
-            />
+                ]) }} />
             <span class="ml-2 font-semibold">{{ $label }}</span>
         </label>
 

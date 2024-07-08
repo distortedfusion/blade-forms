@@ -4,7 +4,6 @@ namespace DistortedFusion\BladeForms\Components;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 class Select extends FormComponent
 {
@@ -38,35 +37,24 @@ class Select extends FormComponent
         $this->label = $label;
         $this->options = $options;
 
-        if ($this->forNative()) {
-            $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
-
-            $this->selectedKey = old($inputName, $default);
-
-            if ($this->selectedKey instanceof Arrayable) {
-                $this->selectedKey = $this->selectedKey->toArray();
-            }
-        }
-
         $this->multiple = $multiple;
         $this->showErrors = $showErrors;
+
+        $this->default($default);
     }
 
     public function isSelected($key): bool
     {
-        if ($this->forLivewire()) {
+        if (! $this->forNative()) {
             return false;
+        }
+
+        $this->selectedKey = old($this->getName(), $this->default);
+
+        if ($this->selectedKey instanceof Arrayable) {
+            $this->selectedKey = $this->selectedKey->toArray();
         }
 
         return in_array($key, Arr::wrap($this->selectedKey));
-    }
-
-    public function nothingSelected(): bool
-    {
-        if ($this->forLivewire()) {
-            return false;
-        }
-
-        return is_array($this->selectedKey) ? empty($this->selectedKey) : is_null($this->selectedKey);
     }
 }

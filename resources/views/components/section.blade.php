@@ -8,7 +8,7 @@
                 @endif
             </div>
 
-            @if ($action ?? false)
+            @if($action ?? false)
                 <div {{ $action->attributes->class(['flex-shrink-0 ml-2 space-x-2']) }}>{{ $action }}</div>
             @endif
         </div>
