@@ -33,24 +33,12 @@ class Radio extends FormComponent
         $this->value = $value;
         $this->showErrors = $showErrors;
 
-        $inputName = static::convertBracketsToDots($name);
-
-        if (old($inputName) !== null) {
-            $this->checked = old($inputName) == $value;
+        if (! is_null($old = old($this->getName()))) {
+            $this->checked = $old == $value;
         }
 
         if (! session()->hasOldInput() && $this->forNative()) {
             $this->checked = $default;
         }
-    }
-
-    /**
-     * Generates an ID by the name and value attributes.
-     *
-     * @return string
-     */
-    protected function generateIdByName(): string
-    {
-        return 'auto_id_'.$this->name.'_'.$this->value;
     }
 }

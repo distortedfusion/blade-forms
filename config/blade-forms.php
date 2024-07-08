@@ -36,7 +36,6 @@ return [
         'form-label' => Components\Label::class,
         'form-radio' => Components\Radio::class,
         'form-radio-button' => Components\RadioButton::class,
-        'form-range' => Components\Range::class,
         'form-select' => Components\Select::class,
         'form-submit' => Components\Submit::class,
         'form-textarea' => Components\Textarea::class,

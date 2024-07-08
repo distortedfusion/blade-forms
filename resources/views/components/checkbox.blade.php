@@ -2,7 +2,9 @@
     'space-y-2'
 ])">
     <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
-        <input {{ $attributes->class([
+        <input {{ $attributes
+            ->except(['checked', 'name', 'value', 'id'])
+            ->class([
                 'form-checkbox',
                 'text-brand-500 border-gray-300',
                 'focus:ring-brand-500',

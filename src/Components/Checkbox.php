@@ -2,9 +2,6 @@
 
 namespace DistortedFusion\BladeForms\Components;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-
 class Checkbox extends FormComponent
 {
     use Concerns\HandlesValidationErrors;
@@ -36,24 +33,12 @@ class Checkbox extends FormComponent
         $this->value = $value;
         $this->showErrors = $showErrors;
 
-        $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
-
-        if ($oldData = old($inputName)) {
-            $this->checked = in_array($value, Arr::wrap($oldData));
+        if (! is_null($old = old($this->getName()))) {
+            $this->checked = $old == $value;
         }
 
         if (! session()->hasOldInput() && $this->forNative()) {
             $this->checked = $default;
         }
-    }
-
-    /**
-     * Generates an ID by the name and value attributes.
-     *
-     * @return string
-     */
-    protected function generateIdByName(): string
-    {
-        return 'auto_id_'.$this->name.'_'.$this->value;
     }
 }
