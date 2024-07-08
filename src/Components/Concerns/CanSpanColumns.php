@@ -27,7 +27,7 @@ trait CanSpanColumns
     public function columnSpan(array|int|string $span): static
     {
         if (! is_array($span)) {
-            $span = ['default' => $span];
+            $span = ['sm' => $span];
         }
 
         $this->columnSpan = [

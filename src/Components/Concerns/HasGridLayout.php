@@ -19,7 +19,7 @@ trait HasGridLayout
     {
         if (! is_array($columns)) {
             $columns = [
-                'lg' => intval($columns),
+                'sm' => intval($columns),
             ];
         }
 

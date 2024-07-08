@@ -1,7 +1,7 @@
 <div {{ $attributes->class([
-        'flex flex-col flex-col-reverse md:flex-row items-center md:space-x-4',
+        'flex flex-col flex-col-reverse sm:flex-row items-center sm:space-x-4',
     ]) }}>
-    <div class="flex-1 w-full mt-2 md:mt-0">
+    <div class="flex-1 w-full mt-2 sm:mt-0">
         @if ($cancelButton ?? false)
             {{ $cancelButton }}
         @else
