@@ -4,16 +4,29 @@ namespace DistortedFusion\BladeForms\Components\Concerns;
 
 use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 
 trait HandlesValidationErrors
 {
-    public $showErrors = true;
+    public bool $showErrors = true;
 
     /**
-     * Returns a boolean wether the given attribute has an error
-     * and the should be shown.
+     * Determine if an error is set.
+     *
+     * @param string $name
+     * @param string $bag
+     *
+     * @return bool
+     */
+    public function hasError(string $name, string $bag = 'default'): bool
+    {
+        $errorBag = $this->getErrorBag($bag);
+
+        return $errorBag->has($name);
+    }
+
+    /**
+     * Determine if an error is set and should be shown.
      *
      * @param string $name
      * @param string $bag
@@ -28,7 +41,7 @@ trait HandlesValidationErrors
     }
 
     /**
-     * Getter for the ErrorBag.
+     * Get the error message bag.
      *
      * @param string $bag
      *
@@ -39,22 +52,5 @@ trait HandlesValidationErrors
         $bags = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag()));
 
         return $bags->getBag($bag);
-    }
-
-    /**
-     * Returns a boolean wether the given attribute has an error.
-     *
-     * @param string $name
-     * @param string $bag
-     *
-     * @return bool
-     */
-    public function hasError(string $name, string $bag = 'default'): bool
-    {
-        $name = str_replace(['[', ']'], ['.', ''], Str::before($name, '[]'));
-
-        $errorBag = $this->getErrorBag($bag);
-
-        return $errorBag->has($name) || $errorBag->has($name.'.*');
     }
 }
