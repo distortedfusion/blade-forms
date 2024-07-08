@@ -3,11 +3,6 @@
 use DistortedFusion\BladeForms\Components;
 
 return [
-    // DEPRECATED
-    'use_eloquent_date_casting' => false,
-    'default_wire' => false,
-    // END-DEPRECATED
-
     'components' => [
         'form.actions' => Components\Actions::class,
 
