@@ -16,11 +16,13 @@
 
             {{ $attributes->class([
                 'form-checkbox',
-                'text-brand-500 border-gray-300',
-                'focus:ring-brand-500',
+                'text-[rgb(var(--primary-500))] border-gray-300',
+                'focus:ring-[rgb(var(--primary-500))]',
             ]) }} />
         <span class="ml-2 font-semibold">{{ $label }}</span>
     </label>
+
+    {{ $slot }}
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

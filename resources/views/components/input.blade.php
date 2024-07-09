@@ -16,8 +16,8 @@
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
-                'text-base leading-none sm:text-sm sm:leading-none text-black bg-white border-gray-300',
-                'dark:text-white dark:bg-gray-900 dark:border-gray-700',
+                'text-base leading-none sm:text-sm sm:leading-none text-inherit bg-white border-[rgb(var(--gray-300))]',
+                'dark:bg-[rgb(var(--gray-900))] dark:border-[rgb(var(--gray-700))]',
             ]) }}>
                 {{ $prefix }}
             </span>
@@ -42,13 +42,13 @@
                 {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full',
                     'text-base sm:text-sm leading-6 sm:leading-6 py-2 h-[2.625rem]',
-                    'placeholder:text-gray-400 dark:placeholder:text-gray-600',
-                    'text-black dark:text-white' => ! Str::contains($attributes->get('class'), 'text-'),
-                    'bg-white dark:bg-gray-900' => ! Str::contains($attributes->get('class'), 'bg-'),
-                    'border-gray-300 dark:border-gray-700' => ! Str::contains($attributes->get('class'), 'border-'),
-                    'ring-0 focus:border-brand-500 focus:ring-1 focus:ring-brand-500',
-                    'disabled:bg-gray-100 disabled:border-gray-300 read-only:bg-gray-100 read-only:border-gray-300',
-                    'focus:disabled:ring-gray-300 focus:disabled:border-gray-300 focus:read-only:ring-gray-300 focus:read-only:border-gray-300',
+                    'placeholder:text-[rgb(var(--gray-400))] dark:placeholder:text-[rgb(var(--gray-600))]',
+                    'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
+                    'bg-white dark:bg-[rgb(var(--gray-900))]' => ! Str::contains($attributes->get('class'), 'bg-'),
+                    'border-[rgb(var(--gray-300))] dark:border-[rgb(var(--gray-700))]' => ! Str::contains($attributes->get('class'), 'border-'),
+                    'ring-0 focus:border-[rgb(var(--primary-500))] focus:ring-1 focus:ring-[rgb(var(--primary-500))]',
+                    'disabled:bg-[rgb(var(--gray-100))] disabled:border-[rgb(var(--gray-300))] read-only:bg-[rgb(var(--gray-100))] read-only:border-[rgb(var(--gray-300))]',
+                    'focus:disabled:ring-[rgb(var(--gray-300))] focus:disabled:border-[rgb(var(--gray-300))] focus:read-only:ring-[rgb(var(--gray-300))] focus:read-only:border-[rgb(var(--gray-300))]',
                     'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'pl-8' => ($iconPrefix ?? false) !== false,
@@ -66,13 +66,15 @@
         @if($suffix ?? false)
             <span {{ $suffix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-r-md -ml-px',
-                'text-base leading-none sm:text-sm sm:leading-none text-black bg-white border-gray-300',
-                'dark:text-white dark:bg-gray-900 dark:border-gray-800',
+                'text-base leading-none sm:text-sm sm:leading-none text-inherit bg-white border-[rgb(var(--gray-300))]',
+                'dark:bg-[rgb(var(--gray-900))] dark:border-[rgb(var(--gray-700))]',
             ]) }}>
                 {{ $suffix }}
             </span>
         @endif
     </div>
+
+    {{ $slot }}
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
