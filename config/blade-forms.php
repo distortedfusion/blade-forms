@@ -14,7 +14,6 @@ return [
         'form.sections' => 'blade-forms::components.section-group',
 
         // Form Elements...
-        'form-button' => Components\Button::class,
         'form-help' => Components\Help::class,
         'form-icon' => 'blade-forms::components.icon',
         'form-pulser' => 'blade-forms::components.pulser',
