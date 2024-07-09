@@ -21,13 +21,11 @@ return [
         // Form components...
         'form' => Components\Form::class,
         'form-checkbox' => Components\Checkbox::class,
-        'form-checkbox-button' => Components\CheckboxButton::class,
         'form-errors' => Components\Errors::class,
         'form-group' => Components\Group::class,
         'form-input' => Components\Input::class,
         'form-label' => Components\Label::class,
         'form-radio' => Components\Radio::class,
-        'form-radio-button' => Components\RadioButton::class,
         'form-select' => Components\Select::class,
         'form-textarea' => Components\Textarea::class,
     ],
