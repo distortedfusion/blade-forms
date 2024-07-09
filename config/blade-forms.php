@@ -4,8 +4,6 @@ use DistortedFusion\BladeForms\Components;
 
 return [
     'components' => [
-        'form-actions' => Components\Actions::class,
-
         'form-grid' => 'blade-forms::components.grid.index',
         'form-grid-column' => 'blade-forms::components.grid.column',
 
@@ -31,7 +29,6 @@ return [
         'form-radio' => Components\Radio::class,
         'form-radio-button' => Components\RadioButton::class,
         'form-select' => Components\Select::class,
-        'form-submit' => Components\Submit::class,
         'form-textarea' => Components\Textarea::class,
     ],
 ];
