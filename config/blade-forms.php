@@ -4,20 +4,20 @@ use DistortedFusion\BladeForms\Components;
 
 return [
     'components' => [
-        'form.actions' => Components\Actions::class,
+        'form-actions' => Components\Actions::class,
 
         'form-grid' => 'blade-forms::components.grid.index',
         'form-grid-column' => 'blade-forms::components.grid.column',
 
-        'form.section' => Components\Section::class,
-        'form.section-title' => Components\SectionTitle::class,
-        'form.sections' => 'blade-forms::components.section-group',
+        'form-section' => Components\Section::class,
+        'form-section-title' => Components\SectionTitle::class,
+        'form-sections' => 'blade-forms::components.section-group',
 
         // Form Elements...
         'form-help' => Components\Help::class,
         'form-icon' => 'blade-forms::components.icon',
         'form-pulser' => 'blade-forms::components.pulser',
-        'form-select.description' => Components\SelectDescription::class,
+        'form-select-description' => Components\SelectDescription::class,
         'form-toggle' => Components\Toggle::class,
 
         // Form components...

@@ -2,7 +2,7 @@
     @if($title)
         <div class="flex items-center justify-between">
             <div class="flex-grow">
-                <x-form.section-title>{{ $title }}</x-form.section-title>
+                <x-form-section-title>{{ $title }}</x-form-section-title>
                 @if($description)
                     <p class="text-[rgb(var(--gray-600))] dark:text-[rgb(var(--gray-400))] text-sm">{{ $description }}</p>
                 @endif
