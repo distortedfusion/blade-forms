@@ -71,5 +71,13 @@ In some cases, especially with Alpine.js where you might have used a masked inpu
 To resolve this you can customize the validation error message key by supplying the `error-name` attribute:
 
 ```html
-<x-form-input name="description-mask" label="Description" error-name="description" />
+<x-form-input type="number" name="amount-mask" label="Amount" error-name="amount" />
+```
+
+### Hide Error Messages
+
+By default all components except radio's show any validation error messages. To disabled this behavior you can supply the `show-errors="false"` boolean attribute to disable error messages.
+
+```html
+<x-form-input name="description" label="Description" :show-errors="false" />
 ```

@@ -3,38 +3,40 @@
 Blade Forms is a collection of reusable Blade form components implementing [Tailwind CSS](https://tailwindcss.com/). With support for [Alpine.js](https://alpinejs.dev), [Livewire](https://livewire.laravel.com/) and native [Laravel Requests](https://laravel.com/docs/requests).
 
 ```blade-component-code
-    <x-form-sections>
-        <x-form-section :title="__('Example Form')" grid-columns="4">
+<x-form-sections>
+    <x-form-section :title="__('Example Form')" grid-columns="4">
+        <x-slot:description>
+            The Evil Rabbit Jumped over the Fence.
+        </x-slot:description>
+
+        <x-form-input name="input" label="Input" :column-span="3">
             <x-slot:description>
-                The Evil Rabbit Jumped over the Fence.
-            </x-slot:description>
-
-            <x-form-input name="input" label="Input" :column-span="3">
                 <x-form-help>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, velit.</x-form-help>
-            </x-form-input>
+            </x-slot:description>
+        </x-form-input>
 
-            <x-form-input type="number" name="number" label="Number" :column-span="2" default="0" />
+        <x-form-input type="number" name="number" label="Number" :column-span="2" default="0" />
 
-            <x-form-select name="select" label="Select" :column-span="2" default="foo" :options="[
-                'foo' => 'Foo',
-                'bar' => 'Bar',
-            ]" />
+        <x-form-select name="select" label="Select" :column-span="2" default="foo" :options="[
+            'foo' => 'Foo',
+            'bar' => 'Bar',
+        ]" />
 
-            <x-form-textarea name="message" label="Message" column-span="full" default="Dear diary, today was a good day..." />
+        <x-form-textarea name="message" label="Message" column-span="full" default="Dear diary, today was a good day..." />
 
-            <x-form-group label="Newsletter" :column-span="2">
-                <x-form-checkbox name="subscribe_to_newsletter_a" label="Subscribe to newsletter - A" default />
-                <x-form-checkbox name="subscribe_to_newsletter_b" label="Subscribe to newsletter - B" default />
-            </x-form-group>
+        <x-form-group label="Newsletter" :column-span="2">
+            <x-form-checkbox name="subscribe_to_newsletter_a" label="Subscribe to newsletter - A" default />
+            <x-form-checkbox name="subscribe_to_newsletter_b" label="Subscribe to newsletter - B" default />
+        </x-form-group>
 
-            <x-form-group name="newsletter_frequency" label="Newsletter frequency" inline :column-span="2">
-                <x-form-radio name="newsletter_frequency" value="daily" label="Daily" default />
-                <x-form-radio name="newsletter_frequency" value="weekly" label="Weekly" />
-            </x-form-group>
+        <x-form-group name="newsletter_frequency" label="Newsletter frequency" inline :column-span="2">
+            <x-form-radio name="newsletter_frequency" value="daily" label="Daily" default />
+            <x-form-radio name="newsletter_frequency" value="weekly" label="Weekly" />
+        </x-form-group>
 
-            <x-form-toggle name="agree_terms" label="Agree with terms" :column-span="3" default />
-        </x-form-section>
-    </x-form-sections>
+        <x-form-toggle name="agree_terms" label="Agree with terms" :column-span="3" default />
+    </x-form-section>
+</x-form-sections>
 ```
 
 ## Installation

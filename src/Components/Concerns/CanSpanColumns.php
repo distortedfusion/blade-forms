@@ -56,7 +56,7 @@ trait CanSpanColumns
     public function columnStart(array|int $start): static
     {
         if (! is_array($start)) {
-            $start = ['default' => $start];
+            $start = ['sm' => $start];
         }
 
         $this->columnStart = [

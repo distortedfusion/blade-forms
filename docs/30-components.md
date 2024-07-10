@@ -77,12 +77,14 @@ Inputs can be prefixed or suffixed with simple text elements for additional clar
 
 Optionally the `x-form-select-description` component can be used to add disabled options in between other options. These disabled options are intended to be used as separators or to add additional information.
 
-The `x-form-select-description` adds a HTML entity at the start of the description. By adding the `after` boolean attribute the HTML entity can be moved to the end of the description. By supplying the `entity` attribute you can change the HTML entity being added.
-
 ```blade-component-code
 <x-form-select name="select" label="Option Descriptions" default="last_week">
-    <option value="last_week">Last week</option>
+    <option value="last_week">Last Week</option>
     <x-form-select-description>{{ \Carbon\Carbon::now()->subWeek()->format('Y-m-d').' - '.\Carbon\Carbon::now()->format('Y-m-d') }}</x-form-select-description>
+    <option value="last_week">Last Month</option>
+    <x-form-select-description>{{ \Carbon\Carbon::now()->subMonth()->format('Y-m-d').' - '.\Carbon\Carbon::now()->format('Y-m-d') }}</x-form-select-description>
+    <option value="last_week">Last Year</option>
+    <x-form-select-description>{{ \Carbon\Carbon::now()->subYear()->format('Y-m-d').' - '.\Carbon\Carbon::now()->format('Y-m-d') }}</x-form-select-description>
 </x-form-select>
 ```
 
