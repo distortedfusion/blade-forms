@@ -22,6 +22,8 @@
         <span class="ml-2 font-semibold">{{ $label }}</span>
     </label>
 
+    {{ $slot }}
+
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif

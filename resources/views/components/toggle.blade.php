@@ -1,4 +1,4 @@
-<div>
+<x-form-grid-column :attributes="$getColumnAttributeBag()">
     <label class="form-toggle inline-flex items-start">
         <input class="sr-only peer"
             id="{{ $getId() }}"
@@ -25,16 +25,14 @@
             'peer-disabled:after:bg-[rgb(var(--gray-100))]',
         ]) }}"></div>
 
-        <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed">
+        <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed space-y-0">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
-            @if($description ?? false)
-                <x-form-help class="mt-0">{{ $description }}</x-form-help>
-            @endif
+            {{ $slot }}
         </div>
     </label>
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
-</div>
+</x-form-grid-column>

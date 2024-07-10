@@ -37,6 +37,8 @@
         </select>
     </div>
 
+    {{ $slot }}
+
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />
     @endif
