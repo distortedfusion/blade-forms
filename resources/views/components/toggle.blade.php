@@ -28,7 +28,9 @@
         <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed space-y-0">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
-            {{ $slot }}
+            @if($description ?? false)
+                {{ $description }}
+            @endif
         </div>
     </label>
 

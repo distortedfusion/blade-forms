@@ -74,7 +74,9 @@
         @endif
     </div>
 
-    {{ $slot }}
+    @if($description ?? false)
+        {{ $description }}
+    @endif
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

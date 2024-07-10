@@ -22,7 +22,9 @@
             ]) }}>{{ $forNative() ? $value : null }}</textarea>
     </div>
 
-    {{ $slot }}
+    @if($description ?? false)
+        {{ $description }}
+    @endif
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

@@ -31,9 +31,9 @@
 
 ```blade-component-code
 <x-form-toggle name="agree_with_terms" label="Agree with terms">
-    <x-slot:description>
+    <x-form-help>
         Toggle to agree with the terms
-    </x-slot:description>
+    </x-form-help>
 </x-form-toggle>
 ```
 
