@@ -80,11 +80,10 @@ Optionally the `x-form-select-description` component can be used to add disabled
 The `x-form-select-description` adds a HTML entity at the start of the description. By adding the `after` boolean attribute the HTML entity can be moved to the end of the description. By supplying the `entity` attribute you can change the HTML entity being added.
 
 ```blade-component-code
-    <x-form-select name="select" label="Select with Description" default="last_week">
-        <option value="last_week">Last week</option>
-        <x-form-select-description>{{ \Carbon\Carbon::now()->subWeek()->format('Y-m-d').' - '.\Carbon\Carbon::now()->format('Y-m-d') }}</x-form-select-description>
-    </x-form-select>
-</div>
+<x-form-select name="select" label="Option Descriptions" default="last_week">
+    <option value="last_week">Last week</option>
+    <x-form-select-description>{{ \Carbon\Carbon::now()->subWeek()->format('Y-m-d').' - '.\Carbon\Carbon::now()->format('Y-m-d') }}</x-form-select-description>
+</x-form-select>
 ```
 
 ## Textarea

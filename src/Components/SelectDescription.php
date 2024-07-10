@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 
 class SelectDescription extends Component
 {
-    public string $entity;
+    public ?string $entity;
     public bool $after;
 
     /**
@@ -16,7 +16,7 @@ class SelectDescription extends Component
      * @param bool   $after
      */
     public function __construct(
-        string $entity = '&rdca;',
+        ?string $entity = null,
         bool $after = false
     ) {
         $this->entity = $entity;
