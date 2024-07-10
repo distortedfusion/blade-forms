@@ -32,7 +32,7 @@
                     {{ $option }}
                 </option>
             @empty
-                {{ $slot }}
+                {!! $slot !!}
             @endforelse
         </select>
     </div>
