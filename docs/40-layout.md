@@ -68,3 +68,20 @@ By setting the `column-start` attribute on any form component you can modify the
 ```
 
 ## Breakpoints
+
+By default when supplying an integer or string value to either the `grid-columns`, `column-span` or `column-start` attributes only the `sm` breakpoint is affected. Breakpoints are based on the default [Tailwind CSS breakpoints](https://tailwindcss.com/docs/responsive-design).
+
+Instead you can also supply an array, with all required breakpoints, to either the `grid-columns`, `column-span` or `column-start` for more granular control.
+
+```html
+<x-form-section :grid-columns="[
+    'default' => 1,
+    'sm' => 2,
+    'md' => 4,
+    'lg' => 6,
+    'xl' => 8,
+    '2xl' => 10,
+]">
+    ...
+</x-form-section>
+```
