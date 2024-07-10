@@ -1,37 +1,31 @@
 # Blade Forms
 
-Blade Forms is a proxy for the [Laravel Form Components](https://github.com/protonemedia/laravel-form-components) package.
+[![Latest Version](https://img.shields.io/github/tag/distortedfusion/blade-forms.svg?style=flat-square)](https://github.com/distortedfusion/blade-forms/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/distortedfusion/blade-forms/ci.yml?branch=master&style=flat-square)](https://github.com/distortedfusion/blade-forms/actions)
 
-This package offers custom markup for the Laravel From Components and additional components.
+Blade Forms is a collection of reusable Blade form components implementing [Tailwind CSS](https://tailwindcss.com/). With support for [Alpine.js](https://alpinejs.dev), [Livewire](https://livewire.laravel.com/) and native [Laravel Requests](https://laravel.com/docs/requests).
 
-## Requirements
+## Documentation
 
-The form components use the [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) baseline styling using the class strategy:
+You will find full documentation on the dedicated [documentation](https://distortedfusion.com/docs/distortedfusion/blade-forms) site.
 
-```
-// tailwind.config.js
-plugins: [
-    require('@tailwindcss/forms')({ strategy: 'class' }),
-    ...
-],
-```
+## Testing
 
-## Installation
+To run the tests, run the following command from the project folder:
 
-Once you have created a new Laravel application, you may install Blade Forms using Composer:
-
-```sh
-composer require distortedfusion/blade-forms
+``` bash
+composer test
 ```
 
-### Purging
+## Security
 
-For correct purging the blade-forms resources need to be included in the TailwindCSS content config:
+If you discover a security vulnerability within this package, please send an e-mail to Kevin Dierkx via kevin@distortedfusion.com. All security vulnerabilities will be promptly addressed.
 
-```
-// tailwind.config.js
-content: [
-    './vendor/distortedfusion/blade-forms/resources/**/*.blade.php',
-    ...
-],
-```
+## Contributing
+
+Contributions are welcome and will be [fully credited](https://github.com/distortedfusion/blade-forms/graphs/contributors). Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
