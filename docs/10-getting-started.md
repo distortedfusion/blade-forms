@@ -72,7 +72,7 @@ export default {
 
 ### Installing Blade Colors
 
-Colors are managed trough [Blade Colors](/docs/distortedfusion/blade-colors). Blade Colors offers [Tailwind CSS](https://tailwindcss.com/) compatible, CSS variable based, color palettes. You will find full documentation on the dedicated [documentation](/docs/distortedfusion/blade-colors) page.
+Colors are managed trough [Blade Colors](/docs/distortedfusion/blade-colors/getting-started). Blade Colors offers [Tailwind CSS](https://tailwindcss.com/) compatible, CSS variable based, color palettes. You will find full documentation on the dedicated [documentation](/docs/distortedfusion/blade-colors/getting-started) page.
 
 Blade Colors is automatically installed with Blade Forms. After installation the `@bladeColor` directive needs be added to your layouts `<head>` section:
 
@@ -90,7 +90,7 @@ Blade Colors is automatically installed with Blade Forms. After installation the
 
 #### Customizing Theme Colors
 
-Blade Forms implements the default `primary` and `gray` color definitions offered by [Blade Colors](/docs/distortedfusion/blade-colors). You can customize this to your liking, for a detailed explanation please refer to the dedicated [documentation](/docs/distortedfusion/blade-colors/usage#customizing-colors-using-palettes) page.
+Blade Forms implements the default `primary` and `gray` color definitions offered by [Blade Colors](/docs/distortedfusion/blade-colors/getting-started). You can customize this to your liking, for a detailed explanation please refer to the dedicated [documentation](/docs/distortedfusion/blade-colors/getting-started/usage#customizing-colors-using-palettes) page.
 
 ## Publishing Configuration
 
