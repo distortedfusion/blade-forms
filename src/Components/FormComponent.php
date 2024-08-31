@@ -61,20 +61,20 @@ abstract class FormComponent extends Component
     public function getId(): string
     {
         if (is_null($this->id)) {
-            $this->id = $this->generateIdUsingNameAttribute();
+            $this->id = $this->generateId();
         }
 
         return $this->id;
     }
 
     /**
-     * Generates an ID using the name attribute.
+     * Generates an ID using the name and attributes of the input.
      *
      * @return string
      */
-    private function generateIdUsingNameAttribute(): string
+    private function generateId(): string
     {
-        return $this->getName().'-'.Str::random(4);
+        return $this->getName().'-'.hash('crc32c', $this->attributes);
     }
 
     /**
