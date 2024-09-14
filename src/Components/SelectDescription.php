@@ -17,7 +17,7 @@ class SelectDescription extends Component
      */
     public function __construct(
         ?string $entity = null,
-        bool $after = false
+        bool $after = false,
     ) {
         $this->entity = $entity;
         $this->after = $after;

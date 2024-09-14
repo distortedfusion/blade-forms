@@ -19,7 +19,7 @@ class Input extends FormComponent
         $default = null,
         bool $showErrors = true,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         parent::__construct(
             id: $id,

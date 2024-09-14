@@ -17,7 +17,7 @@ class Group extends FormComponent
         bool $inline = false,
         bool $showErrors = true,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         parent::__construct(
             id: $id,

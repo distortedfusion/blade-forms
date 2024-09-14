@@ -24,7 +24,7 @@ class Select extends FormComponent
         bool $multiple = false,
         bool $showErrors = true,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         parent::__construct(
             id: $id,

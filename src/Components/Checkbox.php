@@ -18,7 +18,7 @@ class Checkbox extends FormComponent
         bool $default = false,
         bool $showErrors = true,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         parent::__construct(
             id: $id,

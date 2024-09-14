@@ -18,7 +18,7 @@ class Radio extends FormComponent
         bool $default = false,
         bool $showErrors = false,
         array|int|string $columnSpan = [],
-        array|int $columnStart = []
+        array|int $columnStart = [],
     ) {
         parent::__construct(
             id: $id,
