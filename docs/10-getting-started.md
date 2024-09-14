@@ -90,7 +90,7 @@ Blade Colors is automatically installed with Blade Forms. After installation the
 
 #### Customizing Theme Colors
 
-Blade Forms implements the default `primary` and `gray` color definitions offered by [Blade Colors](/docs/distortedfusion/blade-colors/getting-started). You can customize this to your liking, for a detailed explanation please refer to the dedicated [documentation](/docs/distortedfusion/blade-colors/getting-started/usage#customizing-colors-using-palettes) page.
+Blade Forms implements the default `primary` and `gray` color definitions offered by [Blade Colors](/docs/distortedfusion/blade-colors/getting-started). You can customize this to your liking, for a detailed explanation please refer to the dedicated [documentation](/docs/distortedfusion/blade-colors/usage#customizing-colors-using-palettes) page.
 
 ## Publishing Configuration
 
@@ -120,4 +120,4 @@ After publishing you can modify the views from your application's `/resources/vi
 | 10.x    | ^8.1           | >= 2.0  |
 | 11.x    | ^8.2           | >= 2.0  |
 
-*Only the currently supported PHP versions are listed. Please [refer to previous releases of this package](https://github.com/distortedfusion/blade-colors/tags) for support for older PHP or Laravel versions.*
+*Only the currently supported PHP versions are listed. Please [refer to previous releases of this package](https://github.com/distortedfusion/blade-forms/tags) for support for older PHP or Laravel versions.*
