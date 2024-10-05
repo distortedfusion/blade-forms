@@ -8,7 +8,7 @@ Blade Forms is a collection of reusable Blade form components implementing [Tail
 
 ## Documentation
 
-You will find full documentation on the dedicated [documentation](https://distortedfusion.com/docs/distortedfusion/blade-forms) site.
+You will find full documentation on the dedicated [documentation](https://distortedfusion.test/docs/distortedfusion/blade-forms/getting-started) site.
 
 ## Testing
 
