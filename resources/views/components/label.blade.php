@@ -4,6 +4,10 @@
         'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
         'cursor-pointer' => ! Str::contains($attributes->get('class'), 'cursor-'),
     ]) }}>
-        {!! $label !!}
+        <span>{!! $label !!}</span>
+
+        @if($markRequired)
+            <span class="text-[rgb(var(--gray-500))] text-sm">&#42;</span>
+        @endif
     </label>
 @endif

@@ -1,7 +1,7 @@
 <x-form-grid-column :attributes="$getColumnAttributeBag()->class([
     'space-y-2'
 ])">
-    <x-form-label :label="$label ?? $getName()" :for="$getId()" />
+    <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
 
     <div class="flex rounded-md shadow-sm dark:shadow-none">
         <textarea id="{{ $getId() }}"

@@ -3,7 +3,7 @@
 ])->class([
     'space-y-2'
 ])">
-    <x-form-label :label="$label ?? $getName()" :for="$getId()" />
+    <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
 
     <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
             ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
