@@ -17,6 +17,7 @@ class Radio extends FormComponent
         $value = 1,
         bool $default = false,
         bool $showErrors = false,
+        bool $markRequired = false,
         array|int|string $columnSpan = [],
         array|int $columnStart = [],
     ) {
@@ -31,6 +32,7 @@ class Radio extends FormComponent
         $this->label = $label;
         $this->value = $value;
         $this->showErrors = $showErrors;
+        $this->markRequired = $markRequired;
 
         $this->default($default);
     }

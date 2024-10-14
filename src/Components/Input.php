@@ -18,6 +18,7 @@ class Input extends FormComponent
         string $type = 'text',
         $default = null,
         bool $showErrors = true,
+        bool $markRequired = false,
         array|int|string $columnSpan = [],
         array|int $columnStart = [],
     ) {
@@ -32,6 +33,7 @@ class Input extends FormComponent
         $this->label = $label;
         $this->type = $type;
         $this->showErrors = $showErrors;
+        $this->markRequired = $markRequired;
 
         if ($this->forNative()) {
             $this->value = old($name, $default);

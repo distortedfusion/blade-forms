@@ -16,6 +16,7 @@ class Group extends FormComponent
         string $label = '',
         bool $inline = false,
         bool $showErrors = true,
+        bool $markRequired = false,
         array|int|string $columnSpan = [],
         array|int $columnStart = [],
     ) {
@@ -30,5 +31,6 @@ class Group extends FormComponent
         $this->label = $label;
         $this->inline = $inline;
         $this->showErrors = $name && $showErrors;
+        $this->markRequired = $name && $markRequired;
     }
 }

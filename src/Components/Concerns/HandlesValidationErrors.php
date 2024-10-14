@@ -9,6 +9,7 @@ use Illuminate\Support\ViewErrorBag;
 trait HandlesValidationErrors
 {
     public bool $showErrors = true;
+    public bool $markRequired = false;
 
     /**
      * Determine if an error is set.

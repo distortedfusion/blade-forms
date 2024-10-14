@@ -23,6 +23,7 @@ class Select extends FormComponent
         $default = null,
         bool $multiple = false,
         bool $showErrors = true,
+        bool $markRequired = false,
         array|int|string $columnSpan = [],
         array|int $columnStart = [],
     ) {
@@ -39,6 +40,7 @@ class Select extends FormComponent
 
         $this->multiple = $multiple;
         $this->showErrors = $showErrors;
+        $this->markRequired = $markRequired;
 
         $this->default($default);
     }
