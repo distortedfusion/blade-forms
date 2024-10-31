@@ -5,7 +5,7 @@
 ])">
     <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
 
-    <div class="flex items-stretch shadow-sm dark:shadow-none {{ Str::contains($attributes->get('class'), 'rounded-')
+    <div class="flex items-stretch {{ Str::contains($attributes->get('class'), 'rounded-')
             ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
             : 'rounded-md'
         }}"
@@ -46,7 +46,7 @@
                     'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
                     'bg-white dark:bg-[rgb(var(--gray-900))]' => ! Str::contains($attributes->get('class'), 'bg-'),
                     'border-[rgb(var(--gray-300))] dark:border-[rgb(var(--gray-700))]' => ! Str::contains($attributes->get('class'), 'border-'),
-                    'ring-0 focus:border-[rgb(var(--primary-500))] focus:ring-1 focus:ring-[rgb(var(--primary-500))]',
+                    'ring-0 focus:border-[rgb(var(--primary-500))] focus:ring-2 focus:ring-[rgba(var(--primary-500),.25)]',
                     'disabled:bg-[rgb(var(--gray-100))] disabled:border-[rgb(var(--gray-300))] read-only:border-[rgb(var(--gray-300))]',
                     'focus:disabled:ring-[rgb(var(--gray-300))] focus:disabled:border-[rgb(var(--gray-300))] focus:read-only:ring-[rgb(var(--gray-300))] focus:read-only:border-[rgb(var(--gray-300))]',
                     'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
