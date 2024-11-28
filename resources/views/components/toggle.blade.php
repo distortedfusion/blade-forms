@@ -1,5 +1,5 @@
 <x-form-grid-column :attributes="$getColumnAttributeBag()">
-    <label class="form-toggle inline-flex items-start">
+    <label class="form-toggle inline-flex items-start space-x-2 {{ $after ? 'flex-row-reverse' : 'flex-row' }}">
         <input class="sr-only peer"
             id="{{ $getId() }}"
             type="checkbox"
@@ -25,7 +25,7 @@
             'peer-disabled:after:bg-[rgb(var(--gray-100))]',
         ]) }}"></div>
 
-        <div class="ml-2 cursor-pointer peer-disabled:cursor-not-allowed space-y-0">
+        <div class="cursor-pointer peer-disabled:cursor-not-allowed space-y-0">
             <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
 
             @if($description ?? false)
