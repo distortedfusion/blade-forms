@@ -19,7 +19,7 @@
                 'text-[rgb(var(--primary-500))] border-[rgb(var(--gray-300))]',
                 'focus:ring-[rgba(var(--primary-500),.25)]',
             ]) }}/>
-        <span class="ml-2 font-semibold">{{ $label }}</span>
+        <span class="ml-2 font-medium">{{ $label }}</span>
     </label>
 
     @if($description ?? false)

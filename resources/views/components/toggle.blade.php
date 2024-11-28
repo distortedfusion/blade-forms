@@ -26,7 +26,7 @@
         ]) }}"></div>
 
         <div class="cursor-pointer peer-disabled:cursor-not-allowed space-y-0">
-            <span class="text-sm leading-6 font-semibold">{{ $label }}</span>
+            <span class="text-sm leading-6 font-medium">{{ $label }}</span>
 
             @if($description ?? false)
                 {{ $description }}
