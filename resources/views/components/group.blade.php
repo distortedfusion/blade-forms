@@ -3,7 +3,7 @@
 ])">
     <x-form-label :label="$label" class="cursor-default" :mark-required="$markRequired" />
 
-    <div class="{{ $inline ?? false ? 'flex flex-wrap space-x-6' : null }}{{ $label ?? false && $input ?? false ? ' ' : null }}{{ $label ?? false ? 'mt-2' : null }}">
+    <div class="flex {{ $inline ?? false ? 'flex-wrap space-x-6' : 'flex-col space-y-2' }}{{ $label ?? false && $input ?? false ? ' ' : null }}{{ $label ?? false ? 'mt-2' : null }}">
         {!! $slot !!}
     </div>
 
