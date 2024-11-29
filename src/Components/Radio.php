@@ -8,6 +8,7 @@ class Radio extends FormComponent
 
     public string $label;
     public $value;
+    public bool $after;
 
     public function __construct(
         ?string $id = null,
@@ -20,6 +21,7 @@ class Radio extends FormComponent
         bool $markRequired = false,
         array|int|string $columnSpan = [],
         array|int $columnStart = [],
+        bool $after = false,
     ) {
         parent::__construct(
             id: $id,
@@ -33,6 +35,7 @@ class Radio extends FormComponent
         $this->value = $value;
         $this->showErrors = $showErrors;
         $this->markRequired = $markRequired;
+        $this->after = $after;
 
         $this->default($default);
     }
