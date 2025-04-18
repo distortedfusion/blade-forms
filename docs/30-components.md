@@ -3,7 +3,7 @@
 ## Input
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-input name="input" label="Basic Input" />
 
     <x-form-input name="input" label="Input with Description">
@@ -19,7 +19,7 @@
 Optionally the `x-form-icon` component can be used to add icons.
 
 ```blade-component-code
-<div class="grid grid-cols-2 space-x-4">
+<div class="grid grid-cols-2 gap-x-4">
     <x-form-input name="search" label="Search">
         <x-slot:icon-prefix>
             <x-form-icon icon="fal-magnifying-glass" />
@@ -39,7 +39,7 @@ Optionally the `x-form-icon` component can be used to add icons.
 Inputs can be prefixed or suffixed with simple text elements for additional clarity.
 
 ```blade-component-code
-<div class="grid grid-cols-2 space-x-4">
+<div class="grid grid-cols-2 gap-x-4">
     <x-form-input name="quantity" label="Quantity" type="number">
         <x-slot:prefix>
             Quantity
@@ -56,7 +56,7 @@ Inputs can be prefixed or suffixed with simple text elements for additional clar
 ## Select
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-select name="select" label="Basic Select" default="foo" :options="[
         'foo' => 'Foo',
         'bar' => 'Bar',
@@ -91,7 +91,7 @@ Optionally the `x-form-select-description` component can be used to add disabled
 ## Textarea
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-textarea name="textarea" label="Basic Textarea" />
 
     <x-form-textarea name="textarea" label="Textarea with Description">
@@ -109,7 +109,7 @@ The default state of the checkbox component can be configured with the `default`
 The `checked` attribute is managed by Blade Forms and takes the `default` attribute into account when handling [old data](/docs/distortedfusion/blade-forms/usage#validation-and-old-input). When using [Alpine.js or Livewire](/docs/distortedfusion/blade-forms/usage#alpinejs-and-livewire-requests) the checked state would be handled by Alpine.js or Livewire directly.
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-checkbox name="checkbox" label="Basic Checkbox" default />
 
     <x-form-checkbox name="checkbox" label="Checkbox with Description">
@@ -125,7 +125,7 @@ The `checked` attribute is managed by Blade Forms and takes the `default` attrib
 Similar to the checkbox component the default state of radios can be configured with the `default` boolean attribute.
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-radio name="radio" value="option-a" label="Basic Checkbox" default />
 
     <x-form-radio name="radio" value="option-b" label="Checkbox with Description">
@@ -141,7 +141,7 @@ Similar to the checkbox component the default state of radios can be configured 
 Toggles are functionally the same as the [checkbox](#checkbox) component with added styling.
 
 ```blade-component-code
-<div class="space-y-4">
+<div class="flex flex-col gap-y-4">
     <x-form-toggle name="toggle" label="Basic Toggle" default />
 
     <x-form-toggle name="toggle" label="Toggle with Description">

@@ -1,7 +1,7 @@
 <x-form-grid-column :attributes="$getColumnAttributeBag()->merge([
     'hidden' => $type === 'hidden',
 ])->class([
-    'space-y-2'
+    'flex flex-col gap-y-2'
 ])">
     <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
 

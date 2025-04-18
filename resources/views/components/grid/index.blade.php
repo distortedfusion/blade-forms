@@ -13,12 +13,12 @@ $twoXl = $attributes->get('twoXl');
     'default', 'sm', 'md', 'lg', 'xl', 'twoXl',
 ])->class([
     'grid',
-    'grid-cols-[--cols-default]' => $default,
-    'sm:grid-cols-[--cols-sm]' => $sm,
-    'md:grid-cols-[--cols-md]' => $md,
-    'lg:grid-cols-[--cols-lg]' => $lg,
-    'xl:grid-cols-[--cols-xl]' => $xl,
-    '2xl:grid-cols-[--cols-2xl]' => $twoXl,
+    'grid-cols-[var(--cols-default)]' => $default,
+    'sm:grid-cols-[var(--cols-sm)]' => $sm,
+    'md:grid-cols-[var(--cols-md)]' => $md,
+    'lg:grid-cols-[var(--cols-lg)]' => $lg,
+    'xl:grid-cols-[var(--cols-xl)]' => $xl,
+    '2xl:grid-cols-[var(--cols-2xl)]' => $twoXl,
 ])->style([
     "--cols-default: repeat({$default}, minmax(0, 1fr))" => $default,
     "--cols-sm: repeat({$sm}, minmax(0, 1fr))" => $sm,

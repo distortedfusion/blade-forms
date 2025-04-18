@@ -1,5 +1,5 @@
 <x-form-grid-column :attributes="$getColumnAttributeBag()->class([
-    'space-y-2'
+    'flex flex-col gap-y-2'
 ])">
     <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input id="{{ $getId() }}"

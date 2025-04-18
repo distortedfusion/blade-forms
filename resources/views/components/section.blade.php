@@ -1,6 +1,6 @@
-<section {{ $attributes->class(['space-y-4']) }}>
+<section {{ $attributes->class(['flex flex-col gap-y-4']) }}>
     @if($title)
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-x-2">
             <div class="flex-grow">
                 <x-form-section-title>{{ $title }}</x-form-section-title>
                 @if($description)
@@ -9,7 +9,7 @@
             </div>
 
             @if($action ?? false)
-                <div {{ $action->attributes->class(['flex-shrink-0 ml-2 space-x-2']) }}>{{ $action }}</div>
+                <div {{ $action->attributes->class(['flex-shrink-0 flex items-center gap-x-2']) }}>{{ $action }}</div>
             @endif
         </div>
     @endif
