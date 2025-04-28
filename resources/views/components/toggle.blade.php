@@ -1,5 +1,5 @@
 <x-form-grid-column :attributes="$getColumnAttributeBag()">
-    <label class="form-toggle inline-flex items-start gap-x-2 {{ $after ? 'flex-row-reverse' : 'flex-row' }}">
+    <label class="form-toggle inline-flex items-start gap-x-2 w-full {{ $after ? 'flex-row-reverse justify-between' : 'flex-row' }}">
         <input class="sr-only peer"
             id="{{ $getId() }}"
             type="checkbox"
