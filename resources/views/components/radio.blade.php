@@ -15,10 +15,13 @@
             @endif
 
             {{ $attributes->class([
-                'form-radio',
-                'text-[var(--primary)] border-[var(--border)]',
-                'focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
+                'size-4 appearance-none rounded-full relative focus:ring-0 focus:ring-offset-0',
+                'text-[var(--primary)] bg-[var(--input)] border border-[var(--border)]',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]',
+                'before:absolute before:inset-1 before:rounded-full before:bg-[var(--background)] checked:border-[var(--primary)] checked:bg-[var(--primary)] [&:not(:checked)]:before:hidden',
+                'disabled:opacity-50'
             ]) }}/>
+
         <span class="ml-2 font-medium">{{ $label }}</span>
     </label>
 
