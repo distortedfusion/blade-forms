@@ -7,7 +7,7 @@
         <span>{!! $label !!}</span>
 
         @if($markRequired)
-            <span class="text-[rgb(var(--gray-500))] text-sm">&#42;</span>
+            <span class="text-[var(--muted-foreground)] text-sm">&#42;</span>
         @endif
     </label>
 @endif

@@ -4,7 +4,7 @@
             <div class="flex-grow">
                 <x-form-section-title>{{ $title }}</x-form-section-title>
                 @if($description)
-                    <p class="text-[rgb(var(--gray-600))] dark:text-[rgb(var(--gray-400))] text-sm">{{ $description }}</p>
+                    <p class="text-[var(--muted-foreground)] text-sm">{{ $description }}</p>
                 @endif
             </div>
 

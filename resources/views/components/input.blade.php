@@ -1,3 +1,6 @@
+@php
+use Illuminate\Support\Str;
+@endphp
 <x-form-grid-column :attributes="$getColumnAttributeBag()->merge([
     'hidden' => $type === 'hidden',
 ])->class([
@@ -16,8 +19,8 @@
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
-                'text-base leading-none sm:text-sm sm:leading-none text-inherit bg-white border-[rgb(var(--gray-300))]',
-                'dark:bg-[rgb(var(--gray-900))] dark:border-[rgb(var(--gray-700))]',
+                'text-base leading-none sm:text-sm sm:leading-none text-inherit',
+                'bg-[var(--input)] border-[var(--border)]',
             ]) }}>
                 {{ $prefix }}
             </span>
@@ -42,13 +45,11 @@
                 {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full',
                     'text-base sm:text-sm leading-6 sm:leading-6 py-2 h-[2.625rem]',
-                    'placeholder:text-[rgb(var(--gray-400))] dark:placeholder:text-[rgb(var(--gray-600))]',
+                    'placeholder:text-[var(--muted-foreground)]',
                     'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
-                    'bg-white dark:bg-[rgb(var(--gray-900))]' => ! Str::contains($attributes->get('class'), 'bg-'),
-                    'border-[rgb(var(--gray-300))] dark:border-[rgb(var(--gray-700))]' => ! Str::contains($attributes->get('class'), 'border-'),
-                    'ring-0 focus:border-[rgb(var(--primary-500))] dark:focus:border-[rgb(var(--primary-500))] focus:ring-2 focus:ring-[rgba(var(--primary-500),.25)]',
-                    'disabled:bg-[rgb(var(--gray-100))] disabled:border-[rgb(var(--gray-300))] read-only:border-[rgb(var(--gray-300))]',
-                    'focus:disabled:ring-[rgb(var(--gray-300))] focus:disabled:border-[rgb(var(--gray-300))] focus:read-only:ring-[rgb(var(--gray-300))] focus:read-only:border-[rgb(var(--gray-300))]',
+                    'bg-transparent border-[var(--border)]',
+                    'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
+                    'disabled:opacity-50 read-only:opacity-50',
                     'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'pl-8' => ($iconPrefix ?? false) !== false,
@@ -66,8 +67,8 @@
         @if($suffix ?? false)
             <span {{ $suffix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-r-md -ml-px',
-                'text-base leading-none sm:text-sm sm:leading-none text-inherit bg-white border-[rgb(var(--gray-300))]',
-                'dark:bg-[rgb(var(--gray-900))] dark:border-[rgb(var(--gray-700))]',
+                'text-base leading-none sm:text-sm sm:leading-none text-inherit',
+                'bg-[var(--input)] border-[var(--border)]',
             ]) }}>
                 {{ $suffix }}
             </span>

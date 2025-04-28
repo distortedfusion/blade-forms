@@ -10,13 +10,11 @@
             @endif
             {{ $attributes->class([
                 'form-textarea block w-full flex-grow relative text-base sm:text-sm',
-                'placeholder:text-[rgb(var(--gray-400))] dark:placeholder:text-[rgb(var(--gray-600))]',
+                'placeholder:text-[var(--muted-foreground)]',
                 'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
-                'bg-white dark:bg-[rgb(var(--gray-900))]' => ! Str::contains($attributes->get('class'), 'bg-'),
-                'border-[rgb(var(--gray-300))] dark:border-[rgb(var(--gray-700))]' => ! Str::contains($attributes->get('class'), 'border-'),
-                'ring-0 focus:border-[rgb(var(--primary-500))] dark:focus:border-[rgb(var(--primary-500))] focus:ring-2 focus:ring-[rgba(var(--primary-500),.25)]',
-                'disabled:bg-[rgb(var(--gray-100))] disabled:border-[rgb(var(--gray-300))] read-only:border-[rgb(var(--gray-300))]',
-                'focus:disabled:ring-[rgb(var(--gray-300))] focus:disabled:border-[rgb(var(--gray-300))] focus:read-only:ring-[rgb(var(--gray-300))] focus:read-only:border-[rgb(var(--gray-300))]',
+                'bg-transparent border-[var(--border)]',
+                'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
+                'disabled:opacity-50 read-only:opacity-50',
                 'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                 'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
             ]) }}>{{ $forNative() ? $value : null }}</textarea>

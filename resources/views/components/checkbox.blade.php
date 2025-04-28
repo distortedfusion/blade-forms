@@ -16,8 +16,8 @@
 
             {{ $attributes->class([
                 'form-checkbox',
-                'text-[rgb(var(--primary-500))] border-gray-300',
-                'focus:ring-[rgba(var(--primary-500),.25)]',
+                'text-[var(--primary)] border-[var(--border)]',
+                'focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
             ]) }} />
         <span class="ml-2 font-medium">{{ $label }}</span>
     </label>
