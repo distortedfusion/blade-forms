@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <x-form-grid :attributes="$getGridAttributeBag()->class(['gap-x-4 gap-y-6'])">
+    <x-form-grid :attributes="$getGridAttributeBag()->class(['gap-x-4 gap-y-2'])">
         {{ $slot }}
     </x-form-grid>
 </section>
