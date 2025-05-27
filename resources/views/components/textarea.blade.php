@@ -12,7 +12,7 @@
                 'form-textarea block w-full flex-grow relative text-base sm:text-sm',
                 'placeholder:text-[var(--muted-foreground)]',
                 'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
-                'bg-transparent border-[var(--border)]',
+                'bg-[var(--input)] border-[var(--border)]',
                 'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
                 'disabled:opacity-50 read-only:opacity-50',
                 'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
