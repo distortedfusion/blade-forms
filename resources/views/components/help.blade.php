@@ -1,3 +1,3 @@
-<p {{ $attributes->class(['text-[rgb(var(--muted-foreground))] text-sm']) }}>
+<p {{ $attributes->class(['text-[var(--muted-foreground)] text-sm']) }}>
     {{ $slot }}
 </p>
