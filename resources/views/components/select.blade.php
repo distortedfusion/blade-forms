@@ -22,8 +22,8 @@
                 'bg-[var(--input)] border-[var(--border)]',
                 'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
                 'disabled:opacity-50',
-                'rounded-l-md' => ($prefix ?? false) === false,
-                'rounded-r-md' => ($suffix ?? false) === false,
+                'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
+                    'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
             ]) }}>
             @forelse($options as $key => $option)
                 <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
