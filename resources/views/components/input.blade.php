@@ -44,7 +44,7 @@ use Illuminate\Support\Str;
 
                 {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full',
-                    'text-base sm:text-sm leading-6 sm:leading-6 py-2 h-[2.625rem]',
+                    'text-base sm:text-sm leading-[1.375rem] py-2 h-10',
                     'placeholder:text-[var(--muted-foreground)]',
                     'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
                     'bg-[var(--input)] border-[var(--border)]',
