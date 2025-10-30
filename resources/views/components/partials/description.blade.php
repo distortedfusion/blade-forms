@@ -1,8 +1,6 @@
 @if($description ?? false)
     @if(is_string($description))
-        <x-paragraph size="sm" style="muted">
-            {{ $description }}
-        </x-paragraph>
+        <x-form-help>{{ $description }}</x-form-help>
     @else
         {{ $description }}
     @endif
