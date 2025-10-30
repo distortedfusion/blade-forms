@@ -11,6 +11,7 @@ class Section extends Component
 
     public ?string $title;
     public ?string $description;
+    public string $alignItems;
 
     /**
      * Create a new component instance.
@@ -18,11 +19,13 @@ class Section extends Component
      * @param string|null      $title
      * @param string|null      $description
      * @param array|string|int $gridColumns
+     * @param string           $alignItems
      */
-    public function __construct(?string $title = null, ?string $description = null, array|string|int $gridColumns = [])
+    public function __construct(?string $title = null, ?string $description = null, array|string|int $gridColumns = [], string $alignItems = 'start')
     {
         $this->title = $title;
         $this->description = $description;
+        $this->alignItems = $alignItems;
 
         $this->gridColumns($gridColumns);
     }

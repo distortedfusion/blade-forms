@@ -14,7 +14,18 @@
         </div>
     @endif
 
-    <x-form-grid :attributes="$getGridAttributeBag()->class(['gap-x-4 gap-y-2'])">
+    <x-form-grid :attributes="$getGridAttributeBag()->class([
+        'gap-x-4 gap-y-2',
+
+        'items-start' => $alignItems === 'start',
+        'items-end' => $alignItems === 'end',
+        'items-end-safe' => $alignItems === 'end-safe',
+        'items-center' => $alignItems === 'center',
+        'items-center-safe' => $alignItems === 'center-safe',
+        'items-baseline' => $alignItems === 'baseline',
+        'items-baseline-last' => $alignItems === 'baseline-last',
+        'items-stretch' => $alignItems === 'stretch',
+    ])">
         {{ $slot }}
     </x-form-grid>
 </section>
