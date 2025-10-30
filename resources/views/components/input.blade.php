@@ -19,8 +19,8 @@ use Illuminate\Support\Str;
         @if($prefix ?? false)
             <span {{ $prefix->attributes->class([
                 'form-input inline-flex items-center w-auto rounded-l-md border-r-0',
-                'text-base leading-none sm:text-sm sm:leading-none text-inherit',
-                'bg-[var(--input)] border-[var(--border)]',
+                'text-base leading-none sm:text-sm sm:leading-none',
+                'bg-[var(--input)] text-[var(--muted-foreground)] border-[var(--border)]',
             ]) }}>
                 {{ $prefix }}
             </span>
@@ -66,9 +66,9 @@ use Illuminate\Support\Str;
         </div>
         @if($suffix ?? false)
             <span {{ $suffix->attributes->class([
-                'form-input inline-flex items-center w-auto rounded-r-md -ml-px',
-                'text-base leading-none sm:text-sm sm:leading-none text-inherit',
-                'bg-[var(--input)] border-[var(--border)]',
+                'form-input inline-flex items-center w-auto rounded-r-md border-l-0',
+                'text-base leading-none sm:text-sm sm:leading-none',
+                'bg-[var(--input)] text-[var(--muted-foreground)] border-[var(--border)]',
             ]) }}>
                 {{ $suffix }}
             </span>
