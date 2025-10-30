@@ -27,11 +27,7 @@
         <div class="cursor-pointer peer-disabled:cursor-not-allowed flex flex-col gap-y-0">
             <span class="text-sm leading-6 font-medium">{{ $label }}</span>
 
-            @if($description ?? false)
-                <div class="text-xs text-[var(--muted-foreground)]">
-                    {{ $description }}
-                </div>
-            @endif
+            @include('blade-forms::components.partials.description')
         </div>
     </label>
 

@@ -10,6 +10,7 @@ class Select extends FormComponent
     use Concerns\HandlesValidationErrors;
 
     public string $label;
+    public string $description;
     public $options;
     public $selectedKey;
     public bool $multiple;
@@ -19,6 +20,7 @@ class Select extends FormComponent
         ?string $name = null,
         ?string $errorName = null,
         string $label = '',
+        string $description = '',
         $options = [],
         $default = null,
         bool $multiple = false,
@@ -36,6 +38,7 @@ class Select extends FormComponent
         );
 
         $this->label = $label;
+        $this->description = $description;
         $this->options = $options;
 
         $this->multiple = $multiple;

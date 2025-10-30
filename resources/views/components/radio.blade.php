@@ -25,9 +25,7 @@
         <span class="ml-2 font-medium">{{ $label }}</span>
     </label>
 
-    @if($description ?? false)
-        {{ $description }}
-    @endif
+    @include('blade-forms::components.partials.description')
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

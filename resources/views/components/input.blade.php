@@ -75,9 +75,7 @@ use Illuminate\Support\Str;
         @endif
     </div>
 
-    @if($description ?? false)
-        {{ $description }}
-    @endif
+    @include('blade-forms::components.partials.description')
 
     @if($hasErrorAndShow($getErrorName()))
         <x-form-errors :name="$getErrorName()" />

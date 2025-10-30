@@ -7,6 +7,7 @@ class Input extends FormComponent
     use Concerns\HandlesValidationErrors;
 
     public string $label;
+    public string $description;
     public string $type;
     public $value;
 
@@ -15,6 +16,7 @@ class Input extends FormComponent
         ?string $name = null,
         ?string $errorName = null,
         string $label = '',
+        string $description = '',
         string $type = 'text',
         $default = null,
         bool $showErrors = true,
@@ -31,6 +33,7 @@ class Input extends FormComponent
         );
 
         $this->label = $label;
+        $this->description = $description;
         $this->type = $type;
         $this->showErrors = $showErrors;
         $this->markRequired = $markRequired;

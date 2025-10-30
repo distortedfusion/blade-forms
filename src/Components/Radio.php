@@ -7,6 +7,7 @@ class Radio extends FormComponent
     use Concerns\HandlesValidationErrors;
 
     public string $label;
+    public string $description;
     public $value;
     public bool $after;
 
@@ -15,6 +16,7 @@ class Radio extends FormComponent
         ?string $name = null,
         ?string $errorName = null,
         string $label = '',
+        string $description = '',
         $value = 1,
         bool $default = false,
         bool $showErrors = false,
@@ -32,6 +34,7 @@ class Radio extends FormComponent
         );
 
         $this->label = $label;
+        $this->description = $description;
         $this->value = $value;
         $this->showErrors = $showErrors;
         $this->markRequired = $markRequired;
