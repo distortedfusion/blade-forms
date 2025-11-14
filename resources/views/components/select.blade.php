@@ -1,7 +1,16 @@
-<x-form-grid-column :attributes="$getColumnAttributeBag()->class([
-    'flex flex-col gap-y-2'
-])">
-    <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
+@php
+use DistortedFusion\BladeForms\BladeForms;
+@endphp
+<x-dynamic-component
+    :component="BladeForms::componentAliasWithPrefix('form-grid-column')"
+    :attributes="$getColumnAttributeBag()->class([
+        'flex flex-col gap-y-2'
+    ])">
+    <x-dynamic-component
+        :component="BladeForms::componentAliasWithPrefix('form-label')"
+        :label="$label ?? $getName()"
+        :for="$getId()"
+        :mark-required="$markRequired" />
 
     <div class="flex items-center rounded-md">
         <select id="{{ $getId() }}"
@@ -38,6 +47,8 @@
     @include('blade-forms::components.partials.description')
 
     @if($hasErrorAndShow($getErrorName()))
-        <x-form-errors :name="$getErrorName()" />
+        <x-dynamic-component
+            :component="BladeForms::componentAliasWithPrefix('form-errors')"
+            :name="$getErrorName()" />
     @endif
-</x-form-grid-column>
+</x-dynamic-component>

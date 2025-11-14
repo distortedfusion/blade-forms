@@ -55,7 +55,7 @@ class BladeFormsServiceProvider extends ServiceProvider
     {
         $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
             foreach (config('blade-forms.components', []) as $alias => $component) {
-                $blade->component($component, $alias);
+                $blade->component($component, BladeForms::componentAliasWithPrefix($alias));
             }
         });
     }

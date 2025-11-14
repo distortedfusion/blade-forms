@@ -1,12 +1,19 @@
 @php
+use DistortedFusion\BladeForms\BladeForms;
 use Illuminate\Support\Str;
 @endphp
-<x-form-grid-column :attributes="$getColumnAttributeBag()->merge([
-    'hidden' => $type === 'hidden',
-])->class([
-    'flex flex-col gap-y-2'
-])">
-    <x-form-label :label="$label ?? $getName()" :for="$getId()" :mark-required="$markRequired" />
+<x-dynamic-component
+    :component="BladeForms::componentAliasWithPrefix('form-grid-column')"
+    :attributes="$getColumnAttributeBag()->merge([
+        'hidden' => $type === 'hidden',
+    ])->class([
+        'flex flex-col gap-y-2'
+    ])">
+    <x-dynamic-component
+        :component="BladeForms::componentAliasWithPrefix('form-label')"
+        :label="$label ?? $getName()"
+        :for="$getId()"
+        :mark-required="$markRequired" />
 
     <div class="flex items-stretch {{ Str::contains($attributes->get('class'), 'rounded-')
             ? 'rounded-'.Str::before(Str::after($attributes->get('class'), 'rounded-'), ' ')
@@ -78,6 +85,8 @@ use Illuminate\Support\Str;
     @include('blade-forms::components.partials.description')
 
     @if($hasErrorAndShow($getErrorName()))
-        <x-form-errors :name="$getErrorName()" />
+        <x-dynamic-component
+            :component="BladeForms::componentAliasWithPrefix('form-errors')"
+            :name="$getErrorName()" />
     @endif
-</x-form-grid-column>
+</x-dynamic-component>

@@ -3,6 +3,32 @@
 use DistortedFusion\BladeForms\Components;
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Component prefix
+    |--------------------------------------------------------------------------
+    |
+    | A prefix that should be applied to all registered components. This can
+    | be used to prevent collisions between identically named components.
+    |
+    | Example with a prefix of `df`:
+    | - Without: <x-form-input />
+    | - With:    <x-df-form-input />
+    |
+    */
+
+    'prefix' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Components
+    |--------------------------------------------------------------------------
+    |
+    | All components, including their backing class, that should be
+    | registered during runtime.
+    |
+    */
+
     'components' => [
         'form-checkbox' => Components\Checkbox::class,
         'form-errors' => Components\Errors::class,

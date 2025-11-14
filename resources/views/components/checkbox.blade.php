@@ -1,6 +1,11 @@
-<x-form-grid-column :attributes="$getColumnAttributeBag()->class([
-    'flex flex-col gap-y-2'
-])">
+@php
+use DistortedFusion\BladeForms\BladeForms;
+@endphp
+<x-dynamic-component
+    :component="BladeForms::componentAliasWithPrefix('form-grid-column')"
+    :attributes="$getColumnAttributeBag()->class([
+        'flex flex-col gap-y-2'
+    ])">
     <label class="inline-flex items-center cursor-pointer [&:has(input:disabled)]:cursor-not-allowed">
         <input id="{{ $getId() }}"
             type="checkbox"
@@ -27,6 +32,8 @@
     @include('blade-forms::components.partials.description')
 
     @if($hasErrorAndShow($getErrorName()))
-        <x-form-errors :name="$getErrorName()" />
+        <x-dynamic-component
+            :component="BladeForms::componentAliasWithPrefix('form-errors')"
+            :name="$getErrorName()" />
     @endif
-</x-form-grid-column>
+</x-dynamic-component>

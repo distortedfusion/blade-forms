@@ -1,4 +1,9 @@
-<x-form-grid-column :attributes="$getColumnAttributeBag()">
+@php
+use DistortedFusion\BladeForms\BladeForms;
+@endphp
+<x-dynamic-component
+    :component="BladeForms::componentAliasWithPrefix('form-grid-column')"
+    :attributes="$getColumnAttributeBag()">
     <label class="form-toggle inline-flex items-start gap-x-2 w-full {{ $after ? 'flex-row-reverse justify-between' : 'flex-row' }}">
         <input class="sr-only peer"
             id="{{ $getId() }}"
@@ -32,6 +37,8 @@
     </label>
 
     @if($hasErrorAndShow($getErrorName()))
-        <x-form-errors :name="$getErrorName()" />
+        <x-dynamic-component
+            :component="BladeForms::componentAliasWithPrefix('form-errors')"
+            :name="$getErrorName()" />
     @endif
-</x-form-grid-column>
+</x-dynamic-component>
