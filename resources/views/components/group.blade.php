@@ -12,7 +12,7 @@ use DistortedFusion\BladeForms\BladeForms;
         :mark-required="$markRequired"
         class="cursor-default" />
 
-    <div class="flex {{ $inline ?? false ? 'flex-wrap gap-x-6' : 'flex flex-col gap-y-2' }}{{ $label ?? false && $input ?? false ? ' ' : null }}{{ $label ?? false ? 'mt-2' : null }}">
+    <div class="flex {{ $inline ?? false ? 'flex-wrap gap-x-6' : 'flex flex-col gap-y-2' }}{{ $label ?? false && $input ?? false ? ' ' : null }}">
         {!! $slot !!}
     </div>
 
