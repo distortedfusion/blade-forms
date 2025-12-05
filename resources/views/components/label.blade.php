@@ -1,6 +1,6 @@
 @if($label)
     <label {{ $attributes->class([
-        'form-label block text-sm leading-6 font-medium',
+        'form-label block text-sm leading-none font-medium',
         'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
         'cursor-pointer' => ! Str::contains($attributes->get('class'), 'cursor-'),
     ]) }}>

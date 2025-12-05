@@ -30,7 +30,7 @@ use DistortedFusion\BladeForms\BladeForms;
         ]) }}"></div>
 
         <div class="cursor-pointer peer-disabled:cursor-not-allowed flex flex-col gap-y-0">
-            <span class="text-sm leading-6 font-medium">{{ $label }}</span>
+            <span class="text-sm font-medium">{{ $label }}</span>
 
             @include('blade-forms::components.partials.description')
         </div>
