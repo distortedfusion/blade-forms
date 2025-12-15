@@ -25,7 +25,13 @@ use DistortedFusion\BladeForms\BladeForms;
 
             {{ $attributes->class([
                 'form-select block w-full flex-grow relative',
-                'text-base sm:text-sm leading-[1.375rem] py-2 h-10',
+
+                'text-base sm:text-sm leading-5 h-9',
+
+                'py-2',
+                'pl-4',
+                'pr-8',
+
                 'placeholder:text-[var(--muted-foreground)]',
                 'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
                 'bg-[var(--input)] border-[var(--border)]',

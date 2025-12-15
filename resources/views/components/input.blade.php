@@ -51,16 +51,21 @@ use Illuminate\Support\Str;
 
                 {{ $attributes->except(['wire:ignore'])->class([
                     'form-input block w-full',
-                    'text-base sm:text-sm leading-[1.375rem] py-2 h-10',
+
+                    'text-base sm:text-sm leading-5 h-9',
+
+                    'py-2',
+                    'pl-4' => ($iconPrefix ?? false) !== false,
+                    'pr-4' => ($iconSuffix ?? false) !== false,
+
                     'placeholder:text-[var(--muted-foreground)]',
                     'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
                     'bg-[var(--input)] border-[var(--border)]',
                     'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
                     'disabled:opacity-50 read-only:opacity-50',
+
                     'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                     'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
-                    'pl-8' => ($iconPrefix ?? false) !== false,
-                    'pr-8' => ($iconSuffix ?? false) !== false,
                 ]) }} />
             @if($iconSuffix ?? false)
                 <span {{ $iconSuffix->attributes->class([
