@@ -24,8 +24,7 @@ use DistortedFusion\BladeForms\BladeForms;
             '[transition:color_.15s_ease-out]',
             'peer-focus:outline-none',
 
-            'bg-[var(--input)] dark:bg-[color-mix(in_oklab,var(--input)_80%,transparent)]',
-            'peer-checked:bg-[var(--primary)] dark:peer-checked:bg-[var(--primary)]',
+            'bg-[var(--border)] peer-checked:bg-[var(--primary)] dark:peer-checked:bg-[var(--primary)]',
 
             'after:content-[\'\'] after:h-4 after:w-4 after:shadow after:rounded-full after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0.5 after:transition-all',
             'after:bg-[var(--background)] dark:after:bg-[var(--foreground)] dark:peer-checked:after:bg-[var(--primary-foreground)]',
