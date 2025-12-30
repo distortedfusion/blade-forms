@@ -23,7 +23,15 @@ use DistortedFusion\BladeForms\BladeForms;
                 'size-4 appearance-none rounded-full relative focus:ring-0 focus:ring-offset-0',
                 'text-[var(--primary)] bg-[var(--input)] border border-[var(--border)]',
                 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]',
-                'before:absolute before:inset-1 before:rounded-full before:bg-[var(--background)] checked:border-[var(--primary)] checked:bg-[var(--primary)] [&:not(:checked)]:before:hidden',
+
+                'before:absolute before:inset-1 before:rounded-full before:hidden',
+                'before:bg-[var(--foreground)]',
+
+                'hover:before:block focus-visible:before:block checked:before:block',
+
+                'checked:border-[var(--primary)] checked:bg-none checked:bg-[var(--primary)]',
+                'checked:before:bg-[var(--primary-foreground)]',
+
                 'disabled:opacity-50'
             ]) }}/>
 
