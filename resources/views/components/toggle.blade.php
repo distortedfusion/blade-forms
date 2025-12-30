@@ -20,11 +20,16 @@ use DistortedFusion\BladeForms\BladeForms;
 
             {{ $attributes }} />
         <div class="{{ implode(' ', [
-            'flex-shrink-0 h-6 w-10 inline-block relative border-none absolute inset-0 bg-[var(--border)] rounded-full cursor-pointer',
+            'flex-shrink-0 h-5 w-9 inline-block relative border-none absolute inset-0 rounded-full cursor-pointer',
             '[transition:color_.15s_ease-out]',
             'peer-focus:outline-none',
-            'peer-checked:bg-[var(--primary)]',
-            'after:content-[\'\'] after:h-4 after:w-4 after:bg-white after:shadow after:rounded-full after:-mt-2 after:absolute after:top-1/2 after:left-1 after:transition-all',
+
+            'bg-[var(--input)] dark:bg-[color-mix(in_oklab,var(--input)_80%,transparent)]',
+            'peer-checked:bg-[var(--primary)] dark:peer-checked:bg-[var(--primary)]',
+
+            'after:content-[\'\'] after:h-4 after:w-4 after:shadow after:rounded-full after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0.5 after:transition-all',
+            'after:bg-[var(--background)] dark:after:bg-[var(--foreground)] dark:peer-checked:after:bg-[var(--primary-foreground)]',
+
             'peer-checked:after:translate-x-full',
             'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
         ]) }}"></div>
