@@ -55,8 +55,8 @@ use Illuminate\Support\Str;
                     'text-base sm:text-sm leading-5 h-9',
 
                     'py-2',
-                    'pl-4' => ($iconPrefix ?? false) !== false,
-                    'pr-4' => ($iconSuffix ?? false) !== false,
+                    'pl-8' => ($iconPrefix ?? false) !== false,
+                    'pr-8' => ($iconSuffix ?? false) !== false,
 
                     'placeholder:text-[var(--muted-foreground)]',
                     'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
