@@ -22,7 +22,7 @@ use DistortedFusion\BladeForms\BladeForms;
                 'placeholder:text-[var(--muted-foreground)]',
                 'text-inherit' => ! Str::contains($attributes->get('class'), 'text-'),
                 'bg-[var(--input)] border-[var(--border)]',
-                'ring-0 focus:border-[var(--primary)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--primary)_25%,transparent)]',
+                'ring-0 focus:border-[var(--ring)] focus:ring-2 focus:ring-[var(--ring)]/25',
                 'disabled:opacity-50 read-only:opacity-50',
                 'rounded-l-md' => ($prefix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
                 'rounded-r-md' => ($suffix ?? false) === false && ! Str::contains($attributes->get('class'), 'rounded-'),
