@@ -12,7 +12,7 @@ use DistortedFusion\BladeForms\BladeForms;
         :for="$getId()"
         :mark-required="$markRequired" />
 
-    <div class="flex rounded-md shadow-sm dark:shadow-none">
+    <div class="flex rounded-md">
         <textarea id="{{ $getId() }}"
             @if($forNative())
                 name="{{ $getName() }}"
